@@ -1,0 +1,11 @@
+---
+title: "Publications"
+---
+
+
+The MIDFIELD team has been exploring and presenting the stories in the MIDFIELD data for several years. To see a sample of our work, you can follow these links: 
+
+- Lord SM, Ohland MW, Layton RA, and Camacho MM (2019) [Beyond pipeline and pathways: Ecosystem metrics.](https://doi.org/10.1002/jee.20250) *Journal of Engineering Education*, 108, 32--56,  
+- Lord SM, Layton RA, and Ohland MW (2015) [Multi-Institution study of student demographics and outcomes in Electrical and Computer Engineering in the USA](http://dx.doi.org/10.1109/TE.2014.2344622), *IEEE Transactions on Education*, 58(3), 141--150.   
+- Brawner CE, Lord SM,  Layton RA, Ohland MW, and Long RA (2015) [Factors affecting women's persistence in chemical engineering](https://tinyurl.com/y6jq58xh), *International Journal of Engineering Education* 31(6A), 1431--1447.   
+

@@ -1,0 +1,39 @@
+---
+title: "About the workshop"
+---
+
+## Facilitators
+
+**Matthew Ohland** is the MIDFIELD Director and Principal Investigator. He is Professor and Associate Head of Engineering Education at Purdue University.
+
+**Marisa Orr** is the MIDFIELD Associate Director and Assistant Professor in Engineering and Science Education with a joint appointment in Mechanical Engineering at Clemson University.
+
+**Russell Long** is MIDFIELD Managing Director and Data Steward. He developed the stratified data sample for the R packages used in this workshop.
+
+**Susan Lord** is Director of the MIDFIELD Institute and Professor and Chair of Engineering and Professor of Electrical Engineering at the University of San Diego.
+
+**Richard Layton** is the MIDFIELD Data Display Specialist and emeritus professor of Mechanical Engineering at Rose-Hulman. He is the lead developer of the R packages used in this workshop.
+
+
+## Publications
+
+The MIDFIELD team has been exploring and presenting the stories in the MIDFIELD data for several years. To see a sample of our work, you can follow these links: 
+
+- Lord SM, Ohland MW, Layton RA, and Camacho MM (2019) [Beyond pipeline and pathways: Ecosystem metrics.](https://doi.org/10.1002/jee.20250) *Journal of Engineering Education*, 108, 32--56,  
+- Lord SM, Layton RA, and Ohland MW (2015) [Multi-Institution study of student demographics and outcomes in Electrical and Computer Engineering in the USA](http://dx.doi.org/10.1109/TE.2014.2344622), *IEEE Transactions on Education*, 58(3), 141--150.   
+- Brawner CE, Lord SM,  Layton RA, Ohland MW, and Long RA (2015) [Factors affecting women's persistence in chemical engineering](https://tinyurl.com/y6jq58xh), *International Journal of Engineering Education* 31(6A), 1431--1447.   
+
+## Licenses 
+
+The following licenses apply to the text, data, and code in these workshops. Our goal is to minimize legal encumbrances to the dissemination, sharing, use, and re-use of this work. However, the existing rights of authors whose work is cited (text, code, or data) are reserved to those authors.
+
+- [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/legalcode) for all text.  
+- [GPL-3](https://www.r-project.org/Licenses/GPL-3) for all code.  
+- [CC0](https://wiki.creativecommons.org/wiki/CC0_use_for_data) for all data. 
+
+
+## Acknowledgement 
+
+Funding provided by the National Science Foundation Grant 1545667 "Expanding Access to and Participation in the Multiple-Institution Database for Investigating Engineering Longitudinal Development." 
+
+![]("figures/NSF_4-Color_bitmap_Logo.png")
