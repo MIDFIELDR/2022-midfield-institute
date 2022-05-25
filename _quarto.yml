@@ -10,9 +10,12 @@ project:
 website:
   title: "MIDFIELD Institute"
   page-navigation: true
-  page-footer: |
-    Copyright 2022, Matthew Ohland, Marisa Orr, Russell Long, Susan Lord, 
-    and Richard Layton 
+  page-footer: 
+    left: |
+      Copyright 2022 Layton, Long, Lord, Ohland, and Orr. 
+    right: 
+      - text: License
+        file: licenses.qmd
   reader-mode: true
   repo-url: https://github.com/MIDFIELDR/2022-midfield-institute
   repo-actions: [issue]
