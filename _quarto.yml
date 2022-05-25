@@ -2,11 +2,6 @@ project:
   type: website
   output-dir: docs
 
-
-
-
-
-
 website:
   title: "MIDFIELD Institute"
   page-navigation: true
@@ -43,9 +38,6 @@ website:
   comments: 
     utterances:
       repo: https://github.com/MIDFIELDR/2022-midfield-institute
-
-
-
 
 format:
   html:
