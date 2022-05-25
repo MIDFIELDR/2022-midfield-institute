@@ -1,7 +1,7 @@
 {
     "id": "1EB0D0EC",
-    "path": "C:/Users/layto/Documents/R projects/MIDFIELDR-repos/2022-midfield-institute/licenses.qmd",
-    "project_path": "licenses.qmd",
+    "path": "C:/Users/layto/Documents/R projects/MIDFIELDR-repos/2022-midfield-institute/license.qmd",
+    "project_path": "license.qmd",
     "type": "quarto_markdown",
     "hash": "1727295834",
     "contents": "",
@@ -20,7 +20,7 @@
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1653487657988,
+    "last_content_update": 1653487657,
     "read_only": false,
     "read_only_alternatives": []
 }

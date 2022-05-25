@@ -4,7 +4,7 @@
     "href": "about-midfield.html",
     "title": "About MIDFIELD",
     "section": "",
-    "text": "As of June 1, 2022, MIDFIELD contains individual Student Unit Record (SUR) data for 1.7 M undergraduates at 19 institutions with ABET-accredited engineering programs. Of those, 302,631 students declared engineering as a major at some point in their undergraduate education.\nMIDFIELD is a comprehensive resource that includes demographic, enrollment, course performance, and graduation data. A total of 33 institutions have completed Memoranda of Understanding and are expected to be included in the next release."
+    "text": "As of June 1, 2022, MIDFIELD contains SUR data for 1.7 M undergraduates at 19 institutions with ABET-accredited engineering programs. Of those, 302,631 students declared engineering as a major at some point in their undergraduate education."
   },
   {
     "objectID": "about-the-workshop.html",
@@ -33,13 +33,6 @@
     "title": "About the workshop",
     "section": "Acknowledgement",
     "text": "Acknowledgement\nFunding provided by the National Science Foundation Grant 1545667 “Expanding Access to and Participation in the Multiple-Institution Database for Investigating Engineering Longitudinal Development.”"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
   },
   {
     "objectID": "acknowledgements.html",
@@ -77,8 +70,8 @@
     "text": "We welcome faculty, staff, and graduate students.\nOur learning objectives can be categorized in two broad classes: qualitative and computational. Qualitatively, by the end of the workshop participants should be able to:\n\nDescribe the data available in MIDFIELD\n\nDescribe how the MIDFIELD data are organized\n\nDescribe key principles of effective data visualization\n\nComputationally, participants should be able use midfieldr, an R package specifically designed for use with MIDFIELD, to:\n\nSubset MIDFIELD data to obtain a population to study\n\nClassify the student records by desired groupings\n\nSummarize the data by groups and display results"
   },
   {
-    "objectID": "licenses.html",
-    "href": "licenses.html",
+    "objectID": "license.html",
+    "href": "license.html",
     "title": "Open source licenses",
     "section": "",
     "text": "CC-BY 4.0 for text.\n\nGPL-3 for code.\n\nCC0 for data."
