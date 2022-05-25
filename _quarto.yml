@@ -24,13 +24,8 @@ website:
     contents:
       - text: "Welcome"
         file: index.qmd
-      - section: "Introduction"
-        contents:
-          - about-midfield.qmd
-          - facilitators.qmd
-          - publications.qmd
-          - licenses.qmd
-          - acknowledgements.qmd
+      - text: "Introduction"
+        file: introduction.qmd
       - text: "Before you arrive"
         file: before-you-arrive.qmd
       - text: "Agenda"
@@ -44,6 +39,7 @@ format:
     theme: flatly
     css: styles.css
     toc: true
+    code-copy: true
 
 
 
