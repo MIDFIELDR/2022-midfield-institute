@@ -3,7 +3,7 @@
     "path": "C:/Users/layto/Documents/R projects/MIDFIELDR-repos/2022-midfield-institute/_quarto.yml",
     "project_path": "_quarto.yml",
     "type": "yaml",
-    "hash": "122901898",
+    "hash": "1340354109",
     "contents": "",
     "dirty": false,
     "created": 1653406573607.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "17,26",
+        "cursorPosition": "12,67",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1653488110,
+    "lastKnownWriteTime": 1653488399,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1653488110119,
+    "last_content_update": 1653488399127,
     "read_only": false,
     "read_only_alternatives": []
 }
