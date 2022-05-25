@@ -74,7 +74,7 @@
     "href": "index.html",
     "title": "Welcome",
     "section": "",
-    "text": "We welcome faculty, staff, and graduate students.\nOur learning objectives can be categorized in two broad classes: qualitative and computational. Qualitatively, by the end of the workshop participants should be able to:\n\nDescribe the data available in MIDFIELD\n\nDescribe how the MIDFIELD data are organized\n\nDescribe key principles of effective data visualization\n\nIdentify deficiencies of common graph types\n\nComputationally, participants should be able use midfieldr, an R package specifically designed for use with MIDFIELD, to:\n\nCalculate and evaluate educational metrics\n\nProduce a table of data that addresses a research question\n\nExplore and tell a story from MIDFIELD data"
+    "text": "We welcome faculty, staff, and graduate students.\nOur learning objectives can be categorized in two broad classes: qualitative and computational. Qualitatively, by the end of the workshop participants should be able to:\n\nDescribe the data available in MIDFIELD\n\nDescribe how the MIDFIELD data are organized\n\nDescribe key principles of effective data visualization\n\nComputationally, participants should be able use midfieldr, an R package specifically designed for use with MIDFIELD, to:\n\nSubset MIDFIELD data to obtain a population to study\n\nClassify the student records by desired groupings\n\nSummarize the data by groups and display results"
   },
   {
     "objectID": "licenses.html",
