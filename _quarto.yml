@@ -37,7 +37,9 @@ website:
         file: before-you-arrive.qmd
       - text: "Agenda"
         file: agenda.qmd
-
+  comments: 
+    utterances:
+      repo: https://github.com/MIDFIELDR/2022-midfield-institute
 
 
 
