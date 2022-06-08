@@ -174,13 +174,18 @@ If successful, the package will appear in the Packages pane, e.g.,
 Repeat the process for the following packages: 
 
     ggplot2
+    socviz
 
 Alternatively, you can install them all at once by typing in the Console: 
 
 ``` r
-packages_we_use <- c("data.table", "ggplot2")
+packages_we_use <- c("data.table", "ggplot2", "socviz")
 install.packages(packages_we_use)
 ```
+
+
+
+
 
 ## Install midfieldr
 

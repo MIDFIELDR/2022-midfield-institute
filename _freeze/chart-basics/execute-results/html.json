@@ -1,0 +1,14 @@
+{
+  "hash": "48b4199ec2b4ebf18076eff9b86409dd",
+  "result": {
+    "markdown": "---\ntitle: \"Chart basics\"\n---\n\n\nAn introduction to ggplot2, an R package for creating charts of quantitative data, adapted and edited from [@Bashir+Eddelbuettel:2018] licensed under [CC BY SA](https://creativecommons.org/licenses/by-sa/2.0/legalcode) by [ilustat](https://ilustat.com/post/writing-real-life-motivated-r-guides/).\n\n\n\n\n\n\n## Preface\n\n[Before starting.]{.important} Our tutorials assume that you\n\n- Have completed the [Before you arrive](before-you-arrive.html) instructions\n- Have completed the [R basics](r-basics.html) guide \n- Start your R session by launching the RStudio project you created, e.g., `midfield-institute-2022.Rproj`\n\n\n[Start a new script.]{.important} We recommend that you start a new script for this segment. \n\n- Use *File &gt; New File &gt; R Script* to create a new R script\n- *File &gt; Save As...* to name the file (we suggest `02-chart-basics.R`), then save it to the `scripts` directory \n- At the top of the script, add a minimal header, something like: \n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Chart basics\n# R. Layton \n# 2022-06-07 \n```\n:::\n\n\n- Use `library()` to load packages used in the script. \n\n\n::: {.cell}\n\n```{.r .cell-code}\n# packages\nlibrary(\"midfieldr\")\nlibrary(\"ggplot2\")\n```\n:::\n\n\n- Save and run. \n\n## Data\n\nR comes with many datasets installed. We'll use the `ChickWeight` data set to cover some basic data manipulation to prepare the data for graphing. \n\nThe help page for `ChickWeight` summarizes the experiment from which the data were collected,  \n\n> The body weights of the chicks were measured at birth and every second day thereafter until day 20. They were also measured on day 21. There were four groups of chicks on different protein diets.” \n\nYou can view the help page by running,  \n\n``` r\nhelp(\"ChickWeight\")\n```\n\nThere are 578 observations (rows) and 4 variables (columns). Recall that names are case-sensitive---`weight` is lowercase, the other variable are capitalized. \n\n- `weight`: body weight of chick in grams.\n- `Time`: number of days since birth.\n- `Chick`: unique ID for each chick.\n- `Diet`: one of four protein diets.\n\nThe goal of graphing the data is to investigate the effect of diet on weight over time.\n\n## Import the data \n\nIn the [Before you arrive](before-you-arrive.html) instructions, you were asked to create a `data` folder (directory) at the top level of your RStudio project. \n\n\n\n\n\n\n\n\n\n\n\n## References\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

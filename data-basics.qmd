@@ -1,0 +1,13 @@
+---
+title: "Data basics"
+---
+
+An introduction to manipulating data in R. 
+
+## Prerequisites
+
+Institute tutorials assume that you have:
+
+- Completed the [Before you arrive](before-you-arrive.html) instructions  
+- Started your R session by launching the RStudio project you created, for example, `midfield-institute-2022.Rproj` 
+

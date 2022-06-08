@@ -1,0 +1,519 @@
+---
+title: "R basics"
+author: "Richard Layton"
+date: "2022-06-08"
+---
+
+```{r}
+#| label: setup
+#| include: false
+knitr::opts_chunk$set(comment = "#>", collapse = FALSE)
+```
+
+An introduction to R---a free software environment for statistical computing and graphics. 
+
+## Prerequisites
+
+Our tutorials assume that you
+
+- Have completed the [Before you arrive](before-you-arrive.html) instructions  
+- Start your R session by launching the RStudio project you created, e.g., `midfield-institute-2022.Rproj` 
+
+
+
+
+## Scripts
+
+We recommend that you write your lines of code in a script. Scripts can saved, edited, and run again and again. 
+
+- Use *File &gt; New File &gt; R Script* to create a new R script
+- *File &gt; Save As...* to name the file (we suggest `01-R-basics.R`), then save it to the `scripts` directory 
+- At the top of the script, add a minimal header, something like: 
+
+```{r}
+# R basics tutorial
+# R. Layton 
+# 2022-06-07 
+```
+
+The hash symbol `#` denotes a *comment* in R, that is, a line that isn't run. Comments are annotations to make the source code easier for humans to understand but are ignored by R.
+
+In code chunks like the one above you should see a "Copy to clipboard" icon in the upper right corner. Clicking on the icon copies the code chunk to your clipboard and you can paste it into your R script and edit as needed. 
+
+Next,  
+
+- Use `library()` to load packages used in the script. 
+
+```{r}
+# packages
+library("midfieldr")
+library("ggplot2")
+```
+
+Run the script by clicking the *Source* button. Alternatively, you can use the keyboard shortcuts *ctrl A* (MacOS *cmd A*) to select all lines then *ctrl Enter* (MacOS *cmd Return*) to run all lines. (See the appendices for a table of useful keyboard shortcuts.)
+
+If you see an error like this one, 
+
+```
+    Error in library("ggplot2"): there is no package called 'ggplot2'
+```
+
+then you should install the missing package(s) and run the script again. You can review how to install a package [here](before-you-arrive.html#install-cran-packages).  
+
+
+Use your script throughout the tutorial. When a new chunk of code is given,  
+
+- Copy the line(s) of code into your script, save, and run.     
+- Check your result by comparing it to the result in the tutorial.
+- Check what you've learned using the **Your turn** exercises. 
+
+
+
+
+
+
+## Names
+
+Everything in R has a name. 
+
+- named entities, like `x` or `y`  
+- data you have loaded, like `my_data` 
+- functions you use, like `cos()` 
+
+Some names are forbidden 
+
+- reserved words, like `TRUE` or `FALSE`  
+- programming words, like `Inf`, `for`, `else`, and `function`  
+- special entities, like `NA` and `NaN`  
+
+Avoid naming an object with the name of an already existing function, e.g.,  
+
+- `q()`  quit 
+- `c()` combine or concatenate 
+- `mean()` 
+- `range()` 
+
+Names in R are case-sensitive 
+
+- `my_data` and `my_Data` are different objects 
+- We use "snake-case" for naming objects, that is, lowercase letters, numbers, and underscores (`_`) to separate words within a name.
+
+If you want to know if a name is in use, in the RStudio console type a question mark followed by the name, e.g., 
+
+- `? c()` 
+- `? mean()`
+
+If the name is in use, a help page appears in the RStudio Help pane.  
+
+
+
+
+
+
+## Objects
+
+Everything in R is an object.   
+
+- Some objects are built in to R 
+- Some objects are loaded with packages 
+- Some objects are created by you 
+
+
+Type this line of code in your script, save, and run. `c()` is the function to combine or concatenate its elements to create a vector. 
+
+```{r}
+#| results: hide
+
+# a numerical vector
+c(1, 2, 3, 1, 3, 25)
+```
+
+In these notes, everything that comes back to us in the Console as the result of running a script is shown prefaced by `#>`. For example, after running your script, the Console should show, 
+
+```{r}
+#| echo: false
+
+c(1, 2, 3, 1, 3, 25)
+```
+
+The `[1]` printed here is a row label---we'll come back to that. 
+
+You create an object and assign it to a name using the assignment operator (`<-`). The keyboard shortcut is *alt --* (MacOS *option --*).
+
+```{r}
+#| results: hide
+
+# assigning and object to a name
+# 
+x <- c(1, 2, 3, 1, 3, 25)
+y <- c(5, 31, 71, 1, 3, 21, 6)
+```
+
+To see the object assigned to a name, type the name in the script, save, and run, e.g., 
+
+```{r}
+#| collapse: true
+
+# display objects by name
+x
+
+y
+```
+
+Objects in your R project workspace are listed in the RStudio Environment pane. 
+
+![](figures/rstudio-environment-x-y.png)
+
+Datasets are also named objects, and a large number of datasets are included in the base R installation. For example,`state.area` is a vector of the areas (in square miles) of the 50 US states.  
+
+Type into your script, save, and run. 
+
+```{r}
+#| results: hide
+
+# data set bundled with R
+state.area
+```
+
+![](figures/state-area-output.png)
+
+Now you can see how the row labels work. In this example, there are 10 numbers  per row, so the second rows starts with `[11]`, the third with `[21]`, etc. 
+
+- In the Console, type `? state.area` to see the help page for the data set.  The "Details" section of the help page notes that data are arranged in  alphabetical order of the state names.
+
+Subsets of a vector are obtained using square bracket (`[]`) notation. For example, the first five areas are extracted with, 
+
+```{r}
+# subset elements 1 through 5
+state.area[1:5]
+```
+
+The 5th element alone, 
+
+```{r}
+# subset element 5
+state.area[5]
+```
+
+
+
+
+
+
+
+
+## Functions
+
+You do useful things in R with functions. 
+
+- functions are objects the perform actions for you 
+- functions produce output based on the input it receives 
+- functions are recognized by the parentheses at the end of their names 
+
+The parentheses are where we include the inputs (arguments) to the function. 
+
+- `c()` concatenates the comma-separated numbers to create a vector 
+- `mean()` computes the mean of a vector of numbers 
+- `sd()` computes the standard deviation of a vector of numbers 
+- `summary()` returns a summary of the object 
+
+If we try `mean()` with no inputs, we get an error statement. 
+
+    mean()
+    #> Error in mean.default() : argument "x" is missing, with no default
+
+If we use the `state.area` data as the argument, the function is computed and displayed. Add these lines to your script, save, and run. 
+
+```{r}
+# mean
+mean(state.area)
+
+# standard deviation
+sd(state.area)
+
+# object summary
+summary(state.area)
+```
+
+We can extract subsets of data using functions. For example, the US state abbreviations are available in the `state.abb` data set that comes with R. If we wanted every other state area up to the first 10 states, we use `c()` function to create a vector of indices to the desired elements, 
+
+```{r}
+# subset a vector using specified indices
+state.abb[c(2, 4, 6, 8, 10)]
+```
+
+If we wanted every 5th entry over the full data set, we use the `length()` function to determine how many entries there are, and the sequence function `seq()` to create the vector of indices, 
+
+```{r}
+# vector length
+n <- length(state.abb)
+
+# subset a vector using a sequence of indices
+state.abb[seq(from = 5, to = n, by = 5)]
+```
+
+
+
+
+
+
+
+
+
+## Packages
+
+The basic R installation includes many functions. R packages provide specialized functions. 
+
+- Families of useful functions are bundled into packages that you can install, load, and use 
+- Packages allow you to build on the work of others 
+- You can also write your own functions and packages  
+- A lot of the work in data science consists of choosing the right functions and giving them the right arguments to get our data into the form we need for analysis or visualization 
+
+Functions operate on the input you provide and give you back a result. Type the following in your script, save, and run.
+
+```{r}
+x        # the x vector from earlier
+table(x) # the frequency that numbers appear in x
+y        # the y vector from earlier 
+sd(y)    # standard deviation
+x * 5    # multiply every element by a scalar
+y + 1    # add a scalar to every element
+x + x    # add elements of vectors of equal length
+```
+
+To see a list of functions and data sets bundled in a package, use the `ls()` function, e,g,
+
+```{r}
+ls("package:midfieldr")
+```
+
+Alternatively, in RStudio select the `Packages` tab and in its menu bar type the package name in the search box. In the pane, click on the package name. A help page opens listing all the functions and names of data sets in the package, e.g., 
+
+![](figures/rstudio-package-functions.png)
+
+
+
+
+
+
+
+## Classes
+
+Everything in R has class. 
+
+```{r}
+class(x)
+class(summary)
+```
+
+Certain actions will change the class of an object. Suppose we try create a vector from the `x` object and a text string, 
+
+```{r}
+new_vector <- c(x, "Apple")
+new_vector
+class(new_vector)
+```
+
+By adding the word "Apple" to the vector, R changed the class from "numeric" to "character". All the numbers are enclosed in quotes: they are now character strings and cannot be used in calculations. 
+
+The most common class of data object we will use is the *data frame*: a two-dimensional array of rows and columns in R. All values in a column are of the same type (numerical, character, logical, etc.) but columns can be of different types. 
+
+For example, the data frame `study_grad_rate` that is bundled with midfieldr has two character columns and one numerical column. 
+
+```{r}
+# a data frame bundled with midfieldr
+study_grad_rate
+
+class(study_grad_rate)
+```
+
+The `class()` function reveals that this `data.frame` object is also a `data.table` object, which is an enhanced version of R's standard data frame. We won't dwell on the enhancements at this early stage, but they are handy for faster data manipulation with large data sets (e.g. 100GB in RAM). 
+
+You can select a variable from a data frame using the `$` operator, yielding a vector of values, 
+
+```{r}
+study_grad_rate$program
+study_grad_rate$grad_rate
+```
+
+::: {.panel-tabset}
+## Your turn
+Determine the class of the following midfieldr objects:
+
+- `add_institution`
+- `toy_student`
+
+## Answer
+```{r}
+#| echo: false
+class(add_institution)
+class(toy_student)
+```
+
+## Your turn
+Use the `toy_term` data frame in midfieldr. Determine: 
+
+- the names of the variables (columns)
+- the average number of hours per term (use `$` and `mean()`)
+
+## Answer
+```{r}
+#| echo: false
+names(toy_term)
+mean(toy_term$hours_term)
+```
+:::
+
+
+
+
+
+
+
+
+## Structures
+
+Everything in R has structure. 
+
+We can use the `str()` function to display the structure of the data frame, including its variable types and dimensions.  
+
+```{r}
+str(study_grad_rate)
+```
+
+The `str()` function can be applied to *any* R object,  
+
+```{r}
+# character vector
+str(new_vector)
+
+# numerical vector
+str(study_grad_rate$grad_rate)
+
+# function 
+str(str)
+```
+
+When applied to a function, `str()` also displays the arguments of the function. For example, applying `str()` to the `sd` function yields, 
+
+
+
+```{r}
+str(sd)
+```
+
+Thus `sd()` is a function that has an argument `x`, where `x` is an R object, and a second argument `na.rm = FALSE`. To learn more, view the function's help page by running `? sd()`. 
+
+
+::: {.panel-tabset}
+## Your turn
+Use `str()` to determine 
+
+1. `add_institution` arguments
+2. `toy_student` dimensions
+3. `toy_term` numerical variables
+
+## Answer
+
+1. `dframe`, `midfield_term`
+2. 100 rows x 6 columns
+3. `hours_term` 
+:::
+
+
+
+## Mistakes 
+
+Expect to make errors and don't worry when that happens. You won't break anything.
+
+Healy [-@Healy:2019] offers this advice for three specific things to watch out for: 
+
+- Make sure parentheses are balanced---that every opening `(` has a corresponding closing `)`.  
+- Make sure you complete your expressions. If you see a `+` in the Console instead of the usual prompt `>`, that means that R thinks you haven't written a complete expression. You can hit `Esc` or `CTRL-C` to force your way back to the Console and try correcting the code.  
+- In ggplot specifically, as you will see, we create plots layer by layer, using a `+` character at the end of the line---not at the beginning of the next line. 
+
+For example, you would write this, 
+
+```r
+ggplot(data = mpg, aes(x = displ, y = hwy)) +
+    geom_point()
+```
+
+not this,  
+
+```r  
+# error caused by incorrectly placed +
+ggplot(data = mpg, aes(x = displ, y = hwy))  
+    + geom_point()
+```
+
+To conclude, let's graph the `study_grad_rate` data. Don't worry about the syntax just yet, we cover graph basics in the next tutorial. 
+
+```{r}
+#| fig.asp: 0.5
+
+ggplot(data = study_grad_rate, mapping = aes(x = grad_rate, y = program)) +
+  facet_wrap(vars(race_sex), ncol = 4) +
+  geom_point()
+```
+
+::: {.panel-tabset}
+## Your turn
+The code chunk above that creates the chart is written to group the facets of the chart by  the race-ethnicity-sex column of the `study_grad_rate` data frame.  
+
+Make small changes to the code to create a new chart such that the panels are grouped by the engineering program and the race-ethnicity-sex variable inhabits the rows along the vertical scale. 
+
+## Answer
+```{r}
+#| echo: false
+#| fig.asp: 0.4
+
+ggplot(data = study_grad_rate, mapping = aes(x = grad_rate, y = race_sex)) +
+  facet_wrap(vars(program), ncol = 4) +
+  geom_point()
+```
+:::
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Appendices
+## Keyboard shortcuts {.appendix}
+
+If you are working in RStudio, you can see the menu of keyboard shortcuts using the menu  *Tools > Keyboard Shortcuts Help*. 
+
+The shortcuts we use regularly include 
+
+```{r}
+#| echo: false
+
+library("data.table")
+df <- wrapr::build_frame(
+  "Windows / Linux", "Action", "Mac OS"|
+    "`ctrl L`"       , "Clear the RStudio Console"  , "`ctrl L`" |
+    "`ctrl Enter`"   , "Run selected line(s)"        , "`cmd Return`" |
+    "`ctrl alt B`"   , "Run from  begining to line"  , "`cmd option B`" |
+    "`ctrl alt E`"   , "Run from line to end"        , "`cmd option E`" |
+    "`alt` --"       , "Insert the assignment operator `<-`", "`option` --" |
+    "`ctrl shift C`" , "Comment/uncomment line(s)"   , "`cmd shift C`" |
+    "`ctrl X, C, V`" , "Cut, copy, paste"            , "`cmd X, C, V`" |
+    "`ctrl Z`"       , "Undo"                        , "`cmd Z`" |
+    "`ctrl F`"       , "Find in text"                , "`cmd F`" |
+    "`ctrl I`"       , "Indent or re-indent lines od code", "`cmd I`" |
+    "`ctrl S`"       , "Save"                        , "`cmd S`" |
+    "`ctrl A`"       , "Select all text"             , "`cmd A`"  |
+    "`ctrl shift K`" , " Compile R Markdown document", "`cmd shift K`"
+)
+setDT(df)
+setkey(df, Action)
+knitr::kable(df)
+```
