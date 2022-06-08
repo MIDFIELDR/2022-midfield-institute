@@ -238,8 +238,9 @@ div.csl-indent {
    
   <ul>
   <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#import-the-data" id="toc-import-the-data" class="nav-link" data-scroll-target="#import-the-data">Import the data</a></li>
+  <li><a href="#one-time-data-import" id="toc-one-time-data-import" class="nav-link" data-scroll-target="#one-time-data-import">One-time data import</a></li>
+  <li><a href="#read-local-data" id="toc-read-local-data" class="nav-link" data-scroll-target="#read-local-data">Read local data</a></li>
+  <li><a href="#look-at-the-data" id="toc-look-at-the-data" class="nav-link" data-scroll-target="#look-at-the-data">Look at the data</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/MIDFIELDR/2022-midfield-institute/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -287,16 +288,17 @@ div.csl-indent {
 <li>Use <code>library()</code> to load packages used in the script.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># packages</span></span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># silently load packages</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"midfieldr"</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(<span class="st">"ggplot2"</span>))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(<span class="st">"data.table"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Save and run.</li>
 </ul>
 </section>
-<section id="data" class="level2">
-<h2 class="anchored" data-anchor-id="data">Data</h2>
+<section id="one-time-data-import" class="level2">
+<h2 class="anchored" data-anchor-id="one-time-data-import">One-time data import</h2>
 <p>R comes with many datasets installed. We’ll use the <code>ChickWeight</code> data set to cover some basic data manipulation to prepare the data for graphing.</p>
 <p>The help page for <code>ChickWeight</code> summarizes the experiment from which the data were collected,</p>
 <blockquote class="blockquote">
@@ -304,18 +306,133 @@ div.csl-indent {
 </blockquote>
 <p>You can view the help page by running,</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">"ChickWeight"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>There are 578 observations (rows) and 4 variables (columns). Recall that names are case-sensitive—<code>weight</code> is lowercase, the other variable are capitalized.</p>
+<p>There are 578 observations (rows) and 4 variables (columns). Recall that names are case-sensitive—<code>weight</code> is lowercase, the other variables are capitalized.</p>
 <ul>
-<li><code>weight</code>: body weight of chick in grams.</li>
-<li><code>Time</code>: number of days since birth.</li>
 <li><code>Chick</code>: unique ID for each chick.</li>
 <li><code>Diet</code>: one of four protein diets.</li>
+<li><code>Time</code>: number of days since birth.</li>
+<li><code>weight</code>: body weight of chick in grams.</li>
 </ul>
 <p>The goal of graphing the data is to investigate the effect of diet on weight over time.</p>
-</section>
-<section id="import-the-data" class="level2">
-<h2 class="anchored" data-anchor-id="import-the-data">Import the data</h2>
 <p>In the <a href="before-you-arrive.html">Before you arrive</a> instructions, you were asked to create a <code>data</code> folder (directory) at the top level of your RStudio project.</p>
+<p>We use <code>fread()</code> function from the data.table package to read the data set from the workshop repository (an Internet connection is required).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data URL</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>data_url <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/MIDFIELDR/2022-midfield-institute/main/data/ChickWeight.csv"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># download the data</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>ChickWeight <span class="ot">&lt;-</span> <span class="fu">fread</span>(data_url)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># write the data to your data directory</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">fwrite</span>(ChickWeight, <span class="st">"data/Chickweight.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>These lines of code only have to be run once because from now on you’ll read the data from your local directory. Once run, the code chunk above can be commented out of your script, e.g.,</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data URL</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># data_url &lt;- "https://raw.githubusercontent.com/MIDFIELDR/2022-midfield-institute/main/data/ChickWeight.csv"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># download the data</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ChickWeight &lt;- fread(data_url)</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># write the data to your data directory</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># fwrite(ChickWeight, "data/Chickweight.csv")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="read-local-data" class="level2">
+<h2 class="anchored" data-anchor-id="read-local-data">Read local data</h2>
+<p>We import the data from the local file <code>ChickWeight.csv</code> using <code>fread()</code>. This function returns a data.table object with a structure slightly different from the same data set built into R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>cw <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/ChickWeight.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><span class="important">Important note.</span> If all goes well then the data is now in your environment in an R object called <code>cw</code>. If you get the following error message then you need to change the working directory to where the data is stored.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Error<span class="sc">:</span> <span class="st">'ChickWeight.csv'</span> does not exist <span class="cf">in</span> current working directory ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><span class="important">Change the working directory in RStudio.</span> First, confirm that you are working within the R project your set up for the workshop.</p>
+<ul>
+<li>If you are in the project, the project name appears in the upper left corner of the RStudio window. If true, then from the RStudio menu, pull down <em>Session &gt; Set Working Directory &gt; To Project Directory</em> and run the script again.</li>
+<li>If you are not in the project, navigate to the folder you created for the project and launch the <code>midfield-institute-2022.Rproj</code> file.<br>
+</li>
+<li>If that project does not exist, you can create it following the <a href="before-you-arrive.html">Before you arrive</a> instructions.</li>
+</ul>
+<p>When a project is opened within RStudio,</p>
+<ul>
+<li>A new R session (process) is started.</li>
+<li>The current working directory is set to the project directory, facilitating the use of relative file paths.</li>
+<li>Other RStudio settings are restored to where they were the last time the project was closed.</li>
+</ul>
+</section>
+<section id="look-at-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="look-at-the-data">Look at the data</h2>
+<p>To look at the data, type the object (dataset) name:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># view the data</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>cw</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Chick Diet Time weight</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   1:    18    1    0     39</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   2:    18    1    2     35</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   3:    16    1    0     41</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   4:    16    1    2     45</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   5:    16    1    4     49</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ---                       </span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 574:    48    4   14    170</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 575:    48    4   16    222</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 576:    48    4   18    261</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 577:    48    4   20    303</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 578:    48    4   21    322</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Several base R functions help us inspect the data:</p>
+<ul>
+<li><code>str()</code> compactly displays the structure</li>
+<li><code>summary()</code> provides a summary</li>
+<li><code>head()</code> and <code>tail()</code> display the beginning and end of the data set</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(cw)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Classes 'data.table' and 'data.frame':   578 obs. of  4 variables:</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Chick : int  18 18 16 16 16 16 16 16 16 15 ...</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Diet  : int  1 1 1 1 1 1 1 1 1 1 ...</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ Time  : int  0 2 0 2 4 6 8 10 12 0 ...</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  $ weight: int  39 35 41 45 49 51 57 51 54 41 ...</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  - attr(*, ".internal.selfref")=&lt;externalptr&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This shows that the dataset has 578 observations and 4 variables as expected. The <code>str()</code> output displays the variable types (here, all integers) and the first few values. The RStudio <em>Environment</em> pane provides a very similar view.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cw)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Chick            Diet            Time           weight     </span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Min.   : 1.00   Min.   :1.000   Min.   : 0.00   Min.   : 35.0  </span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1st Qu.:13.00   1st Qu.:1.000   1st Qu.: 4.00   1st Qu.: 63.0  </span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Median :26.00   Median :2.000   Median :10.00   Median :103.0  </span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Mean   :25.75   Mean   :2.235   Mean   :10.72   Mean   :121.8  </span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3rd Qu.:38.00   3rd Qu.:3.000   3rd Qu.:16.00   3rd Qu.:163.8  </span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Max.   :50.00   Max.   :4.000   Max.   :21.00   Max.   :373.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Your turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Answer</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Use <code>tail()</code> to examine the last observations in <code>cw</code> and compare to the last observations in the original <code>ChickWeight</code> data set provided in R.</p>
+<p>Do they agree?</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Yes they agree</p>
+<div class="cell">
+<pre><code>#&gt;    Chick Diet Time weight
+#&gt; 1:    48    4   12    154
+#&gt; 2:    48    4   14    170
+#&gt; 3:    48    4   16    222
+#&gt; 4:    48    4   18    261
+#&gt; 5:    48    4   20    303
+#&gt; 6:    48    4   21    322
+#&gt;    Chick Diet Time weight
+#&gt; 1:    48    4   12    154
+#&gt; 2:    48    4   14    170
+#&gt; 3:    48    4   16    222
+#&gt; 4:    48    4   18    261
+#&gt; 5:    48    4   20    303
+#&gt; 6:    48    4   21    322</code></pre>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="references" class="level2">
 

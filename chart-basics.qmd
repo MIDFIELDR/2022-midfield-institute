@@ -35,14 +35,15 @@ knitr::opts_chunk$set(comment = "#>", collapse = TRUE)
 - Use `library()` to load packages used in the script. 
 
 ```{r}
-# packages
+# silently load packages
 library("midfieldr")
-library("ggplot2")
+suppressMessages(library("ggplot2"))
+suppressMessages(library("data.table"))
 ```
 
 - Save and run. 
 
-## Data
+## One-time data import 
 
 R comes with many datasets installed. We'll use the `ChickWeight` data set to cover some basic data manipulation to prepare the data for graphing. 
 
@@ -56,25 +57,117 @@ You can view the help page by running,
 help("ChickWeight")
 ```
 
-There are 578 observations (rows) and 4 variables (columns). Recall that names are case-sensitive---`weight` is lowercase, the other variable are capitalized. 
+There are 578 observations (rows) and 4 variables (columns). Recall that names are case-sensitive---`weight` is lowercase, the other variables are capitalized. 
 
-- `weight`: body weight of chick in grams.
-- `Time`: number of days since birth.
 - `Chick`: unique ID for each chick.
 - `Diet`: one of four protein diets.
+- `Time`: number of days since birth.
+- `weight`: body weight of chick in grams.
 
 The goal of graphing the data is to investigate the effect of diet on weight over time.
 
-## Import the data 
-
 In the [Before you arrive](before-you-arrive.html) instructions, you were asked to create a `data` folder (directory) at the top level of your RStudio project. 
 
+We use `fread()` function from the data.table package to read the data set from the workshop repository (an Internet connection is required). 
+
+```{r}
+#| include: false
+
+# data URL
+data_url <- "https://raw.githubusercontent.com/MIDFIELDR/2022-midfield-institute/main/data/chick_weight.csv"
+
+# download the data
+chick_weight <- fread(data_url)
+
+# write the data to your data directory
+fwrite(chick_weight, "data/chick_weight.csv")
+```
+
+These lines of code only have to be run once because from now on you'll read the data from your local directory. Once run, the code chunk above can be commented out of your script, e.g.,  
+
+```{r}
+# # data URL
+# data_url <- "https://raw.githubusercontent.com/MIDFIELDR/2022-midfield-institute/main/data/chick_weight.csv"
+# 
+# # download the data
+# chick_weight <- fread(data_url)
+# 
+# # write the data to your data directory
+# fwrite(chick_weight, "data/chick_weight.csv")
+```
+
+## Read local data
+
+We import the data from the local file  `ChickWeight.csv` using `fread()`. This function returns a data.table object with a structure slightly different from the same data set built into R. 
+
+```{r}
+cw <- fread("data/chick_weight.csv")
+```
+
+[Important note.]{.important} If all goes well then the data is now in your environment in an R object called `cw`. If you get the following error message then you need to change the working directory to where the data is stored.
+
+```r
+Error: 'chick_weight.csv' does not exist in current working directory ...
+```
+
+[Change the working directory in RStudio.]{.important} First, confirm that you are working within the R project your set up for the workshop. 
+
+- If you are in the project, the project name appears in the upper left corner of the RStudio window. If true, then from the RStudio menu, pull down *Session &gt; Set Working Directory &gt; To Project Directory* and run the script again. 
+- If you are not in the project, navigate to the folder you created for the project and launch the `midfield-institute-2022.Rproj` file.  
+- If that project does not exist, you can create it following the [Before you arrive](before-you-arrive.html) instructions. 
+
+When a project is opened within RStudio,
+
+- A new R session (process) is started.
+- The current working directory is set to the project directory, facilitating the use of relative file paths. 
+- Other RStudio settings are restored to where they were the last time the project was closed.
+
+## Look at the data
+
+To look at the data, type the object (dataset) name:
+
+```{r}
+# view the data
+cw
+```
+
+Several base R functions help us inspect the data: 
+
+- `str()` compactly displays the structure
+- `summary()` provides a summary
+- `head()` and `tail()` display the beginning and end of the data set
+
+```{r}
+str(cw)
+```
+
+This shows that the dataset has 578 observations and 4 variables as expected. The `str()` output displays the variable types (here, all integers) and the first few values. The RStudio *Environment* pane provides a very similar view.
+
+```{r}
+summary(cw)
+```
 
 
+::: panel-tabset
+## Your turn
+
+Use `tail()` to examine the last observations in `cw` and compare to the last observations in the original `ChickWeight` data set provided in R. 
+
+Do they agree?
 
 
+## Answer
 
+Yes they agree
 
+```{r}
+#| echo: false
+
+tail(cw)
+
+tail(ChickWeight)
+```
+:::
 
 
 
