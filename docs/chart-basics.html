@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MIDFIELD Institute - Chart basics</title>
+<title>MIDFIELD Institute - R chart basics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -175,7 +175,7 @@ div.csl-indent {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Chart basics</h1>
+      <h1 class="quarto-secondary-nav-title">R chart basics</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -238,9 +238,13 @@ div.csl-indent {
    
   <ul>
   <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
-  <li><a href="#one-time-data-import" id="toc-one-time-data-import" class="nav-link" data-scroll-target="#one-time-data-import">One-time data import</a></li>
-  <li><a href="#read-local-data" id="toc-read-local-data" class="nav-link" data-scroll-target="#read-local-data">Read local data</a></li>
-  <li><a href="#look-at-the-data" id="toc-look-at-the-data" class="nav-link" data-scroll-target="#look-at-the-data">Look at the data</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#scatterplot" id="toc-scatterplot" class="nav-link" data-scroll-target="#scatterplot">Scatterplot</a></li>
+  <li><a href="#add-a-category" id="toc-add-a-category" class="nav-link" data-scroll-target="#add-a-category">Add a category</a></li>
+  <li><a href="#faceted-chart" id="toc-faceted-chart" class="nav-link" data-scroll-target="#faceted-chart">Faceted chart</a></li>
+  <li><a href="#mean-line-chart" id="toc-mean-line-chart" class="nav-link" data-scroll-target="#mean-line-chart">Mean line chart</a></li>
+  <li><a href="#box-whisker-plot" id="toc-box-whisker-plot" class="nav-link" data-scroll-target="#box-whisker-plot">Box &amp; whisker plot</a></li>
+  <li><a href="#scatterplot-with-mean-line" id="toc-scatterplot-with-mean-line" class="nav-link" data-scroll-target="#scatterplot-with-mean-line">Scatterplot with mean line</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/MIDFIELDR/2022-midfield-institute/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -250,7 +254,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Chart basics</h1>
+<h1 class="title d-none d-lg-block">R chart basics</h1>
 </div>
 
 
@@ -289,17 +293,16 @@ div.csl-indent {
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># silently load packages</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"midfieldr"</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(<span class="st">"ggplot2"</span>))</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(<span class="st">"data.table"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(<span class="st">"ggplot2"</span>))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(<span class="fu">library</span>(<span class="st">"data.table"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Save and run.</li>
 </ul>
 </section>
-<section id="one-time-data-import" class="level2">
-<h2 class="anchored" data-anchor-id="one-time-data-import">One-time data import</h2>
-<p>R comes with many datasets installed. We’ll use the <code>ChickWeight</code> data set to cover some basic data manipulation to prepare the data for graphing.</p>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<p><span class="important">Introduction.</span> R comes with many datasets installed. We’ll use the <code>ChickWeight</code> data set to cover some basic data manipulation to prepare the data for graphing.</p>
 <p>The help page for <code>ChickWeight</code> summarizes the experiment from which the data were collected,</p>
 <blockquote class="blockquote">
 <p>The body weights of the chicks were measured at birth and every second day thereafter until day 20. They were also measured on day 21. There were four groups of chicks on different protein diets.”</p>
@@ -314,38 +317,33 @@ div.csl-indent {
 <li><code>weight</code>: body weight of chick in grams.</li>
 </ul>
 <p>The goal of graphing the data is to investigate the effect of diet on weight over time.</p>
-<p>In the <a href="before-you-arrive.html">Before you arrive</a> instructions, you were asked to create a <code>data</code> folder (directory) at the top level of your RStudio project.</p>
+<p><span class="important">Download a CSV file.</span> In the <a href="before-you-arrive.html">Before you arrive</a> instructions, you were asked to create a <code>data</code> folder (directory) at the top level of your RStudio project.</p>
 <p>We use <code>fread()</code> function from the data.table package to read the data set from the workshop repository (an Internet connection is required).</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data URL</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>data_url <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/MIDFIELDR/2022-midfield-institute/main/data/ChickWeight.csv"</span></span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data URL</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>data_url <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/MIDFIELDR/2022-midfield-institute/main/data/chick_weight.csv"</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># download the data</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>ChickWeight <span class="ot">&lt;-</span> <span class="fu">fread</span>(data_url)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>chick_weight <span class="ot">&lt;-</span> <span class="fu">fread</span>(data_url)</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># write the data to your data directory</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">fwrite</span>(ChickWeight, <span class="st">"data/Chickweight.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">fwrite</span>(chick_weight, <span class="st">"data/chick_weight.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>These lines of code only have to be run once because from now on you’ll read the data from your local directory. Once run, the code chunk above can be commented out of your script, e.g.,</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data URL</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># data_url &lt;- "https://raw.githubusercontent.com/MIDFIELDR/2022-midfield-institute/main/data/ChickWeight.csv"</span></span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # data URL</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># data_url &lt;- "https://raw.githubusercontent.com/MIDFIELDR/2022-midfield-institute/main/data/chick_weight.csv"</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># download the data</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ChickWeight &lt;- fread(data_url)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># # download the data</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># chick_weight &lt;- fread(data_url)</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># write the data to your data directory</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># fwrite(ChickWeight, "data/Chickweight.csv")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># # write the data to your data directory</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># fwrite(chick_weight, "data/chick_weight.csv")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="read-local-data" class="level2">
-<h2 class="anchored" data-anchor-id="read-local-data">Read local data</h2>
-<p>We import the data from the local file <code>ChickWeight.csv</code> using <code>fread()</code>. This function returns a data.table object with a structure slightly different from the same data set built into R.</p>
+<p><span class="important">Read a local CSV file.</span> We import the data from the local file <code>chick_weight.csv</code> using <code>fread()</code>. This function returns a data.table object with a structure slightly different from the same data set built into R.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>cw <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/ChickWeight.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>cw <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/chick_weight.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><span class="important">Important note.</span> If all goes well then the data is now in your environment in an R object called <code>cw</code>. If you get the following error message then you need to change the working directory to where the data is stored.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Error<span class="sc">:</span> <span class="st">'ChickWeight.csv'</span> does not exist <span class="cf">in</span> current working directory ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Error<span class="sc">:</span> <span class="st">'chick_weight.csv'</span> does not exist <span class="cf">in</span> current working directory ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><span class="important">Change the working directory in RStudio.</span> First, confirm that you are working within the R project your set up for the workshop.</p>
 <ul>
 <li>If you are in the project, the project name appears in the upper left corner of the RStudio window. If true, then from the RStudio menu, pull down <em>Session &gt; Set Working Directory &gt; To Project Directory</em> and run the script again.</li>
@@ -359,10 +357,7 @@ div.csl-indent {
 <li>The current working directory is set to the project directory, facilitating the use of relative file paths.</li>
 <li>Other RStudio settings are restored to where they were the last time the project was closed.</li>
 </ul>
-</section>
-<section id="look-at-the-data" class="level2">
-<h2 class="anchored" data-anchor-id="look-at-the-data">Look at the data</h2>
-<p>To look at the data, type the object (dataset) name:</p>
+<p><span class="important">Look at the data.</span> To look at the data, type the object (dataset) name:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># view the data</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>cw</span>
@@ -406,14 +401,14 @@ div.csl-indent {
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Max.   :50.00   Max.   :4.000   Max.   :21.00   Max.   :373.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Your turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Answer</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Your turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Answer</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Your turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Answer</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>Use <code>tail()</code> to examine the last observations in <code>cw</code> and compare to the last observations in the original <code>ChickWeight</code> data set provided in R.</p>
-<p>Do they agree?</p>
+<p>Use <code>tail()</code> to examine the last observations in <code>cw</code> and compare to the last observations in the <code>ChickWeight</code> data set provided in base R.</p>
+<p>Do they agree? Describe the differences, if any.</p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>Yes they agree</p>
+<p>The variables (columns) are the same but in different order. The observations (rows) are apparently in different order too.</p>
 <div class="cell">
 <pre><code>#&gt;    Chick Diet Time weight
 #&gt; 1:    48    4   12    154
@@ -422,13 +417,275 @@ div.csl-indent {
 #&gt; 4:    48    4   18    261
 #&gt; 5:    48    4   20    303
 #&gt; 6:    48    4   21    322
-#&gt;    Chick Diet Time weight
-#&gt; 1:    48    4   12    154
-#&gt; 2:    48    4   14    170
-#&gt; 3:    48    4   16    222
-#&gt; 4:    48    4   18    261
-#&gt; 5:    48    4   20    303
-#&gt; 6:    48    4   21    322</code></pre>
+#&gt;     weight Time Chick Diet
+#&gt; 573    155   12    50    4
+#&gt; 574    175   14    50    4
+#&gt; 575    205   16    50    4
+#&gt; 576    234   18    50    4
+#&gt; 577    264   20    50    4
+#&gt; 578    264   21    50    4</code></pre>
+</div>
+<p>Also, the row numbers in <code>cw</code> (a data.table) are different from the row numbers in <code>ChickWeight</code>.</p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>Use <code>str()</code> to compare <code>cw</code> to the original <code>ChickWeight</code> in base R.</p>
+<p>How are they different?</p>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<p><code>cw</code> is a data.frame and a data.table object and the variables are all integers.</p>
+<div class="cell">
+<pre><code>#&gt; Classes 'data.table' and 'data.frame':   578 obs. of  4 variables:
+#&gt;  $ Chick : int  18 18 16 16 16 16 16 16 16 15 ...
+#&gt;  $ Diet  : int  1 1 1 1 1 1 1 1 1 1 ...
+#&gt;  $ Time  : int  0 2 0 2 4 6 8 10 12 0 ...
+#&gt;  $ weight: int  39 35 41 45 49 51 57 51 54 41 ...
+#&gt;  - attr(*, ".internal.selfref")=&lt;externalptr&gt;</code></pre>
+</div>
+<p><code>ChickWeight</code> is a data.frame and a groupedData object (a type of ordered grouping). Two columns are integers but two are factors. We’ll discuss factors in due course.</p>
+<div class="cell">
+<pre><code>#&gt; Classes 'nfnGroupedData', 'nfGroupedData', 'groupedData' and 'data.frame':   578 obs. of  4 variables:
+#&gt;  $ weight: num  42 51 59 64 76 93 106 125 149 171 ...
+#&gt;  $ Time  : num  0 2 4 6 8 10 12 14 16 18 ...
+#&gt;  $ Chick : Ord.factor w/ 50 levels "18"&lt;"16"&lt;"15"&lt;..: 15 15 15 15 15 15 15 15 15 15 ...
+#&gt;  $ Diet  : Factor w/ 4 levels "1","2","3","4": 1 1 1 1 1 1 1 1 1 1 ...
+#&gt;  - attr(*, "formula")=Class 'formula'  language weight ~ Time | Chick
+#&gt;   .. ..- attr(*, ".Environment")=&lt;environment: R_EmptyEnv&gt; 
+#&gt;  - attr(*, "outer")=Class 'formula'  language ~Diet
+#&gt;   .. ..- attr(*, ".Environment")=&lt;environment: R_EmptyEnv&gt; 
+#&gt;  - attr(*, "labels")=List of 2
+#&gt;   ..$ x: chr "Time"
+#&gt;   ..$ y: chr "Body weight"
+#&gt;  - attr(*, "units")=List of 2
+#&gt;   ..$ x: chr "(days)"
+#&gt;   ..$ y: chr "(gm)"</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="scatterplot" class="level2">
+<h2 class="anchored" data-anchor-id="scatterplot">Scatterplot</h2>
+<p><span class="important">ggplot2 package.</span> We use the ggplot2 package to visualize the chick weight data. Our goal is to examine how weight changes over time conditioned by diet.</p>
+<p>Don’t worry too much about the details of the syntax. To learn more, try different things even if you get an error message. No harm is done!</p>
+<p><span class="important">First plot.</span> Let’s plot the weight data (y axis) as a function of time (x axis). The first plot is empty because there is no “geom” (a geometric object) to encode the data visually.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> cw, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Time, <span class="at">y =</span> weight))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="chart-basics_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Next we add the <code>geom_point()</code> layer to encode the data as points in a scatterplot.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> cw, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Time, <span class="at">y =</span> weight)) <span class="sc">+</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="chart-basics_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Your turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Answer</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>Switch the variables <code>Time</code> and <code>weight</code> in the code chunk.</p>
+<p>What do you think of this new plot compared to the original?</p>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>In a time series, the visual convention (in Latin/Roman-descended societies) is for time to read from left to right, so this chart is not as intuitive as the earlier chart.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="chart-basics_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-a-category" class="level2">
+<h2 class="anchored" data-anchor-id="add-a-category">Add a category</h2>
+<p><span class="important">Add color for Diet.</span> The graph does not differentiate between the diets. Essentially we use color to encode a third variable, <code>Diet</code>, a categorical variable. One important thing to notice is that all arguments being “mapped” must be names of variables in the <code>cw</code> data frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> cw, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Time, <span class="at">y =</span> weight, <span class="at">color =</span> <span class="fu">factor</span>(Diet))) <span class="sc">+</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="chart-basics_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>It is difficult to conclude anything from this graph as the points are printed on top of one another (with diet 1 underneath and diet 4 at the top).</p>
+</section>
+<section id="faceted-chart" class="level2">
+<h2 class="anchored" data-anchor-id="faceted-chart">Faceted chart</h2>
+<p><span class="important">Factor variables.</span> Before we continue, we make an important change to the <code>cw</code> dataset by making <code>Diet</code> and <code>Time factor</code> variables. This means that R will treat them as categorical variables instead of continuous variables. It will simplify our coding.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create factors using data.table syntax</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>cw[, Diet <span class="sc">:</span><span class="er">=</span> <span class="fu">factor</span>(Diet)]</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>cw[, Time <span class="sc">:</span><span class="er">=</span> <span class="fu">factor</span>(Time)]</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># notice the difference ?</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cw) </span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      Chick       Diet         Time         weight     </span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Min.   : 1.00   1:220   0      : 50   Min.   : 35.0  </span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1st Qu.:13.00   2:120   2      : 50   1st Qu.: 63.0  </span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Median :26.00   3:120   4      : 49   Median :103.0  </span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Mean   :25.75   4:118   6      : 49   Mean   :121.8  </span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3rd Qu.:38.00           8      : 49   3rd Qu.:163.8  </span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  Max.   :50.00           10     : 49   Max.   :373.0  </span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                          (Other):282</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>:=</code> operator altered the variables “in-place”, and no explicit assignment was made. This is a key feature of data.table which operated “by reference”: changes are made in reference to one instance of the cw variable, rather than by creating updated copies. We revisit the <code>:=</code> operator below.</p>
+<p><span class="important">facet_wrap() function.</span> <code>facet_wrap()</code> is a ggplot2 function that plots variables in separate facets, or panels. In this case, each facet contains one of the four diets.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create facets by Diet </span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> cw, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Time, <span class="at">y =</span> weight, <span class="at">color =</span> Diet)) <span class="sc">+</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(Diet)) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="chart-basics_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Your turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Answer</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Your turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false">Answer</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<ul>
+<li>To address “overprinting” (where points print over other points in the same position), replace <code>geom_point()</code> with <code>geom_jitter()</code>.</li>
+<li>What observations about the data can you make?</li>
+</ul>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="chart-basics_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ul>
+<li>Jittering allows a much better view of the full data set.</li>
+<li>Diet 4 has the least variability.</li>
+<li>Diet 3 seems to have the highest weights.</li>
+<li>We can’t really say anything about the mean effect of each diet.</li>
+</ul>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<p>For the <code>legend.position</code> argument, try using “top”, “left” and “none”.</p>
+<p>Do we really need a legend for this plot?</p>
+</div>
+<div id="tabset-3-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-4-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="chart-basics_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Here, the <code>legend.position</code> argument is “none”. The diet types are in the panel headers, so a legend is unnecessary.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="mean-line-chart" class="level2">
+<h2 class="anchored" data-anchor-id="mean-line-chart">Mean line chart</h2>
+<p>Next we plot the <em>mean</em> changes over time for each diet using the <code>stat_summary()</code> function. Because we do not have facets this time, we use the default legend.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> cw, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Time, <span class="at">y =</span> weight, <span class="at">group =</span> Diet, <span class="at">color =</span> Diet)) <span class="sc">+</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.y =</span> <span class="st">"mean"</span>, <span class="at">geom =</span> <span class="st">"line"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="chart-basics_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>We see that diet 3 has the highest mean weight gain by the end of the experiment but we don’t have any information about the variation (uncertainty) in the data.</p>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Your turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Answer</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<ul>
+<li>What happens when you add <code>geom_point()</code> to the plot above? Don’t forget the <code>+</code>.</li>
+<li>Does it make a difference if you put it before or after <code>stat_summary(...)</code>?</li>
+<li>Hint: Look carefully at how the graph is plotted.</li>
+</ul>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="chart-basics_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ul>
+<li>The chart is the same either way.</li>
+<li>The underlying idea in ggplot2 is that a chart is assembled in layers, adding a new layer to previous layers using the <code>+</code> operator.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="box-whisker-plot" class="level2">
+<h2 class="anchored" data-anchor-id="box-whisker-plot">Box &amp; whisker plot</h2>
+<p>To see variation between the different diets we use <code>geom_boxplot()</code> to plot a box &amp; whisker plot. A note of caution—the number of chicks per diet is relatively low to produce this plot.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> cw, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Time, <span class="at">y =</span> weight, <span class="at">color =</span> Diet)) <span class="sc">+</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(Diet)) <span class="sc">+</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Changing distributions of chick weight by diet and elapsed time"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="chart-basics_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ul>
+<li>Diet 3 seems to have the highest “average” weight gain</li>
+<li>Diet 4 seems to have the least amount of variation</li>
+</ul>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Your turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Answer</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<p>To the plot above, edit the axis labels using <code>xlab()</code> for the x-axis label and <code>ylab()</code> for the y-axis label. The labels should be,</p>
+<ul>
+<li>x-axis: “Time (days)”</li>
+<li>y-axis: “Weight (grams)”</li>
+</ul>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="chart-basics_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="scatterplot-with-mean-line" class="level2">
+<h2 class="anchored" data-anchor-id="scatterplot-with-mean-line">Scatterplot with mean line</h2>
+<p>Let’s finish with a plot that you might include in a publication</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> cw, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Time, <span class="at">y =</span> weight, <span class="at">group =</span> Diet, <span class="at">color =</span> Diet)) <span class="sc">+</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(Diet)) <span class="sc">+</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.y =</span> <span class="st">"mean"</span>, <span class="at">geom =</span> <span class="st">"line"</span>, <span class="at">colour=</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>() <span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Chick weight by diet and elapsed time"</span>) <span class="sc">+</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Time (days)"</span>) <span class="sc">+</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Weight (grams)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="chart-basics_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Note that I printed the line layer first then printed the points over them to let the data be prominent.</p>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">Your turn</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">Answer</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<ul>
+<li>Read the help page for the <code>facet_wrap()</code> function</li>
+<li>See if you can edit the code slightly to make the facets print out row-wise, as in 1 row and 4 columns of charts.<br>
+</li>
+<li>What visual advantages does this arrangement provide?</li>
+<li>What visual disadvantages?</li>
+</ul>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<div class="cell" data-fig.asp="0.4">
+<div class="cell-output-display">
+<p><img src="chart-basics_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
+</div>
 </div>
 </div>
 </div>

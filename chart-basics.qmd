@@ -1,5 +1,5 @@
 ---
-title: "Chart basics"
+title: "R chart basics"
 ---
 
 An introduction to ggplot2, an R package for creating charts of quantitative data, adapted and edited from [@Bashir+Eddelbuettel:2018] licensed under [CC BY SA](https://creativecommons.org/licenses/by-sa/2.0/legalcode) by [ilustat](https://ilustat.com/post/writing-real-life-motivated-r-guides/).
@@ -36,16 +36,15 @@ knitr::opts_chunk$set(comment = "#>", collapse = TRUE)
 
 ```{r}
 # silently load packages
-library("midfieldr")
 suppressMessages(library("ggplot2"))
 suppressMessages(library("data.table"))
 ```
 
 - Save and run. 
 
-## One-time data import 
+## Data
 
-R comes with many datasets installed. We'll use the `ChickWeight` data set to cover some basic data manipulation to prepare the data for graphing. 
+[Introduction.]{.important} R comes with many datasets installed. We'll use the `ChickWeight` data set to cover some basic data manipulation to prepare the data for graphing. 
 
 The help page for `ChickWeight` summarizes the experiment from which the data were collected,  
 
@@ -66,13 +65,11 @@ There are 578 observations (rows) and 4 variables (columns). Recall that names a
 
 The goal of graphing the data is to investigate the effect of diet on weight over time.
 
-In the [Before you arrive](before-you-arrive.html) instructions, you were asked to create a `data` folder (directory) at the top level of your RStudio project. 
+[Download a CSV file.]{.important} In the [Before you arrive](before-you-arrive.html) instructions, you were asked to create a `data` folder (directory) at the top level of your RStudio project. 
 
 We use `fread()` function from the data.table package to read the data set from the workshop repository (an Internet connection is required). 
 
-```{r}
-#| include: false
-
+```r
 # data URL
 data_url <- "https://raw.githubusercontent.com/MIDFIELDR/2022-midfield-institute/main/data/chick_weight.csv"
 
@@ -96,9 +93,7 @@ These lines of code only have to be run once because from now on you'll read the
 # fwrite(chick_weight, "data/chick_weight.csv")
 ```
 
-## Read local data
-
-We import the data from the local file  `ChickWeight.csv` using `fread()`. This function returns a data.table object with a structure slightly different from the same data set built into R. 
+[Read a local CSV file.]{.important} We import the data from the local file  `chick_weight.csv` using `fread()`. This function returns a data.table object with a structure slightly different from the same data set built into R. 
 
 ```{r}
 cw <- fread("data/chick_weight.csv")
@@ -122,9 +117,7 @@ When a project is opened within RStudio,
 - The current working directory is set to the project directory, facilitating the use of relative file paths. 
 - Other RStudio settings are restored to where they were the last time the project was closed.
 
-## Look at the data
-
-To look at the data, type the object (dataset) name:
+[Look at the data.]{.important} To look at the data, type the object (dataset) name:
 
 ```{r}
 # view the data
@@ -151,14 +144,14 @@ summary(cw)
 ::: panel-tabset
 ## Your turn
 
-Use `tail()` to examine the last observations in `cw` and compare to the last observations in the original `ChickWeight` data set provided in R. 
+Use `tail()` to examine the last observations in `cw` and compare to the last observations in the `ChickWeight` data set provided in base R. 
 
-Do they agree?
+Do they agree? Describe the differences, if any. 
 
 
 ## Answer
 
-Yes they agree
+The variables (columns) are the same but in different order. The observations (rows) are apparently in different order too. 
 
 ```{r}
 #| echo: false
@@ -166,6 +159,276 @@ Yes they agree
 tail(cw)
 
 tail(ChickWeight)
+```
+
+Also, the row numbers in `cw` (a data.table) are different from the row numbers in `ChickWeight`. 
+
+## Your turn
+
+Use `str()` to compare `cw` to the original `ChickWeight` in base R. 
+
+How are they different?
+
+## Answer
+
+`cw` is a data.frame and a data.table object and the variables are all integers. 
+
+```{r}
+#| echo: false
+
+str(cw)
+```
+
+`ChickWeight` is a data.frame and a groupedData object (a type of ordered grouping). Two columns are integers but two are factors. We'll discuss factors in due course. 
+
+```{r}
+#| echo: false
+
+str(ChickWeight)
+```
+:::
+
+
+## Scatterplot
+
+[ggplot2 package.]{.important} We use the ggplot2 package to visualize the chick weight data. Our goal is to examine how weight changes over time conditioned by diet. 
+
+Don't worry too much about the details of the syntax. To learn more, try different things even if you get an error message. No harm is done! 
+
+[First plot.]{.important} Let’s plot the weight data (y axis) as a function of time (x axis). The first plot is empty because there is no "geom" (a geometric object) to encode the data visually. 
+
+```{r}
+ggplot(data = cw, mapping = aes(x = Time, y = weight))
+```
+
+Next we add the `geom_point()` layer to encode the data as points in a scatterplot. 
+
+```{r}
+ggplot(data = cw, mapping = aes(x = Time, y = weight)) + 
+  geom_point()
+```
+
+
+::: panel-tabset
+## Your turn
+
+Switch the variables `Time` and `weight` in the code chunk.
+
+What do you think of this new plot compared to the original?
+
+## Answer
+
+In a time series, the visual convention (in Latin/Roman-descended societies) is for time to read from left to right, so this chart is not as intuitive as the earlier chart. 
+
+```{r}
+#| echo: false
+
+ggplot(data = cw, mapping = aes(x = weight, y = Time)) + 
+  geom_point()
+```
+:::
+
+##  Add a category
+
+[Add color for Diet.]{.important} The graph does not differentiate between the diets. Essentially we use color to encode a third variable, `Diet`, a categorical variable. One important thing to notice is that all arguments being "mapped" must be names of variables in the `cw` data frame. 
+
+```{r}
+ggplot(data = cw, mapping = aes(x = Time, y = weight, color = factor(Diet))) +
+  geom_point()
+```
+
+It is difficult to conclude anything from this graph as the points are printed on top of one another (with diet 1 underneath and diet 4 at the top).
+
+
+## Faceted chart
+
+[Factor variables.]{.important} Before we continue, we make an important change to the `cw` dataset by making `Diet` and `Time factor` variables. This means that R will treat them as categorical variables instead of continuous variables. It will simplify our coding.
+
+
+
+```{r}
+# create factors using data.table syntax
+cw[, Diet := factor(Diet)]
+cw[, Time := factor(Time)]
+
+# notice the difference ?
+summary(cw) 
+```
+
+The `:=` operator altered the variables “in-place”, and no explicit assignment was made. This is a key feature of data.table which operated “by reference”: changes are made in reference to one instance of the cw variable, rather than by creating updated copies. We revisit the `:=` operator below.
+
+[facet_wrap() function.]{.important} `facet_wrap()` is a ggplot2 function that plots variables in separate facets, or panels. In this case, each facet contains one of the four diets. 
+
+```{r}
+# create facets by Diet 
+ggplot(data = cw, mapping = aes(x = Time, y = weight, color = Diet)) +
+  geom_point() +
+  facet_wrap(vars(Diet)) +
+  theme(legend.position = "bottom")
+```
+
+
+
+::: panel-tabset
+## Your turn
+
+- To address "overprinting" (where points print over other points in the same position), replace `geom_point()` with `geom_jitter()`. 
+- What observations about the data can you make? 
+
+## Answer
+```{r}
+#| echo: false
+
+ggplot(data = cw, mapping = aes(x = Time, y = weight, color = Diet)) +
+  geom_jitter() +
+  facet_wrap(vars(Diet)) +
+  theme(legend.position = "bottom")
+```
+
+- Jittering allows a much better view of the full data set. 
+- Diet 4 has the least variability. 
+- Diet 3 seems to have the highest weights. 
+- We can't really say anything about the mean effect of each diet. 
+
+## Your turn
+
+For the `legend.position` argument, try using “top”, “left” and
+“none”. 
+
+Do we really need a legend for this plot?
+
+## Answer
+
+```{r}
+#| echo: false
+
+ggplot(data = cw, mapping = aes(x = Time, y = weight, color = Diet)) +
+  geom_jitter() +
+  facet_wrap(vars(Diet)) +
+  theme(legend.position = "none")
+```
+
+Here, the `legend.position` argument is "none". The diet types are in the panel headers, so a legend is unnecessary. 
+:::
+
+## Mean line chart
+
+Next we plot the *mean* changes over time for each diet using the `stat_summary()` function. Because we do not have facets this time, we use the default legend. 
+
+```{r}
+ggplot(data = cw, mapping = aes(x = Time, y = weight, group = Diet, color = Diet)) +
+  stat_summary(fun.y = "mean", geom = "line")
+```
+
+We see that diet 3 has the highest mean weight gain by the end of the experiment but we don’t have any information about the variation (uncertainty) in the data.
+
+::: panel-tabset
+
+## Your turn
+
+- What happens when you add `geom_point()` to the plot above? Don’t forget the `+`. 
+- Does it make a difference if you put it before or after `stat_summary(...)`? 
+- Hint: Look carefully at how the graph is plotted.
+
+## Answer
+
+```{r}
+#| echo: false
+
+ggplot(data = cw, mapping = aes(x = Time, y = weight, group = Diet, color = Diet)) +
+  stat_summary(fun.y = "mean", geom = "line") +
+  geom_point()
+```
+
+- The chart is the same either way. 
+- The underlying idea in ggplot2 is that a chart is assembled in layers, adding a new layer to previous layers using the `+` operator. 
+:::
+
+
+
+## Box & whisker plot
+
+To see variation between the different diets we use `geom_boxplot()` to plot a box & whisker plot. A note of caution---the number of chicks per diet is relatively low to produce this plot.
+
+```{r}
+ggplot(data = cw, mapping = aes(x = Time, y = weight, color = Diet)) +
+  facet_wrap(vars(Diet)) +
+  geom_boxplot() +
+  theme(legend.position = "none") +
+  ggtitle("Changing distributions of chick weight by diet and elapsed time")
+```
+
+- Diet 3 seems to have the highest “average” weight gain 
+- Diet 4 seems to have the least amount of variation 
+
+
+
+::: panel-tabset
+
+## Your turn
+
+To the plot above, edit the axis labels using `xlab()` for the x-axis label and `ylab()` for the y-axis label. The labels should be, 
+
+- x-axis: "Time (days)"
+- y-axis: “Weight (grams)”
+
+## Answer
+
+```{r}
+#| echo: false
+
+ggplot(data = cw, mapping = aes(x = Time, y = weight, color = Diet)) +
+  facet_wrap(vars(Diet)) +
+  geom_boxplot() +
+  theme(legend.position = "none") +
+  ggtitle("Changing distributions of chick weight by diet and elapsed time") +
+  xlab("Time (days)") + 
+  ylab("Weight (grams)")
+```
+:::
+
+
+## Scatterplot with mean line
+
+Let's finish with a plot that you might include in a publication
+
+```{r}
+ggplot(data = cw, mapping = aes(x = Time, y = weight, group = Diet, color = Diet)) +
+  facet_wrap(vars(Diet)) +
+  stat_summary(fun.y = "mean", geom = "line", colour= "black") +
+  geom_jitter() +
+  theme(legend.position = "none") +
+  ggtitle("Chick weight by diet and elapsed time") +
+  xlab("Time (days)") +
+  ylab("Weight (grams)")
+```
+
+Note that I printed the line layer first then printed the points over them to let the data be prominent. 
+
+
+::: panel-tabset
+
+## Your turn
+
+- Read the help page for the `facet_wrap()` function 
+- See if you can edit the code slightly to make the facets print out row-wise, as in 1 row and 4 columns of charts.  
+- What visual advantages does this arrangement provide?
+- What visual disadvantages? 
+
+## Answer
+
+```{r}
+#| echo: false
+#| fig-asp: 0.4
+
+ggplot(data = cw, mapping = aes(x = Time, y = weight, group = Diet, color = Diet)) +
+  facet_wrap(vars(Diet), ncol = 4) +
+  stat_summary(fun.y = "mean", geom = "line", colour= "black") +
+  geom_jitter() +
+  theme(legend.position = "none") +
+  ggtitle("Chick weight by diet and elapsed time") +
+  xlab("Time (days)") +
+  ylab("Weight (grams)")
 ```
 :::
 
