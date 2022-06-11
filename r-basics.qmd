@@ -8,11 +8,13 @@ title: "R basics"
 knitr::opts_chunk$set(comment = "#>", collapse = TRUE)
 ```
 
-This guide is adapted and edited from [@Bashir+Eddelbuettel:2018] licensed under [CC BY SA](https://creativecommons.org/licenses/by-sa/2.0/legalcode) by [ilustat](https://ilustat.com/post/writing-real-life-motivated-r-guides/).
+An introduction to key concepts in R. 
+
+[License.]{.important} This material is adapted from *Getting started in R: Tinyverse edition* by Bashir and Eddelbuettel [-@Bashir+Eddelbuettel:2018] which was licensed under CC BY-SA by [ilustat](https://ilustat.com/post/writing-real-life-motivated-r-guides/). This adaptation and extension, *R basics* by Richard Layton, is licensed under [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/legalcode). 
 
 ## Preface
 
-This "Getting Started" guide will give you a flavor of what R can do for you. To get the most out of this guide, do the examples and exercises as you read along.
+This guide gives you a flavor of what R can do for you. To get the most out of this guide, do the examples and exercises as you read along.
 
 [Experiment safely.]{.important} Be brave and experiment with commands and options as it is an essential part of the learning process. Things can and will go "wrong", like getting error messages or deleting things that you create. You can recover from most situations using "undo" `ctrl Z` (MacOS `cmd Z`) or restarting R with the RStudio menu *Session \> Restart R*.
 
@@ -21,7 +23,15 @@ This "Getting Started" guide will give you a flavor of what R can do for you. To
 - Have completed the [Before you arrive](before-you-arrive.html) instructions\
 - Start your R session by launching the RStudio project you created, e.g., `midfield-institute-2022.Rproj`
 
-## Introduction
+If you are in an RStudio project, the project name appears in the upper left corner of the RStudio window. Your project directory (folder) should look something like this:
+
+    midfield-institute-2022\
+        data\
+        results\
+        scripts\
+        midfield-institute-2022.Rproj
+
+## Getting started
 
 [Starting R & RStudio.]{.important} R starts automatically when you open RStudio with a screen similar to @fig-tinyverse-01. The console starts with information about the version number, license and contributors. The last line is a prompt (`>`) that indicates R is ready to do something.
 
@@ -34,7 +44,7 @@ This "Getting Started" guide will give you a flavor of what R can do for you. To
 knitr::include_graphics("figures/tinyverse-01.png")
 ```
 
-[Quitting R & RStudio]{.important}. When you quit RStudio you will be asked whether to *Save workspace?* with a yes or no option. If you choose *Yes*, your current workspace is restored the next time you open RStudio. But as long as you save your script, saving the workspace is unnecessary. We recommend you choose *No*.
+[Quitting R & RStudio]{.important}. When you quit RStudio you will be asked whether to *Save workspace?* with a yes or no option. If you choose *Yes*, your current workspace is restored the next time you open RStudio. But as long as you save your script, saving the workspace is unnecessary. I recommend you choose *No*.
 
 To set *No* as the default option, from the RStudio menu select *Tools \> Global Options*.
 
@@ -69,6 +79,8 @@ help(mean)
 apropos("mean")
 ```
 
+The lines of R output are labeled---here with `[1]`, `[5]` , and `[9]`. These labels indicate the index or position of the first element in that line within the overall output (here, of length 12). Thus in this output vector, `".colMeans"` has index 1, `"mean"` has index 5, and `"mean.POSIXct"` has index 9.
+
 [Help examples.]{.important} Use the `example()` function to run the examples at the end of the help for a function:
 
 ```{r}
@@ -76,11 +88,13 @@ apropos("mean")
 example(mean)
 ```
 
+Here, the output of the `mean()` example has length 2 (8.75 5.50). The label `[1]` indicates that the number 8.75 has index 1. 
+
 [RStudio help.]{.important} Rstudio provides search box in the *Help* tab to make your life easier (see @fig-tinyverse-01).
 
-[Online help.]{.important} When you search online use \[R\] in your search terms, for example, "\[r\] linear regression".
+[Online help.]{.important} When you search online use \[r\] in your search terms, for example, "\[r\] linear regression". Because we use data.table for data manipulation, I further recommend that you include data.table as a keyword, e.g., "\[r\]\[data.table\] group and summarize". 
 
-There is nearly always more than one solution to your problem---investigate the different options and try to use one whose arguments and logic you can follow.
+There is nearly always more than one solution to your problem---investigate the different options and try to use one whose arguments and logic you can follow. Limiting your browser's search to the past year can sometimes eliminate out-of-date solutions.
 
 ::: panel-tabset
 ## Your turn
@@ -116,21 +130,19 @@ Press the escape key (ESC) to break out.
 
 ## R scripts
 
-We recommend that you write your lines of code in a script. Scripts can saved, edited, and run again and again. 
+I recommend that you write your lines of code in a script. Scripts can saved, edited, and run again and again. 
 
 - Use *File &gt; New File &gt; R Script* to create a new R script
-- *File &gt; Save As...* to name the file (we suggest `01-R-basics.R`), then save it to the `scripts` directory 
+- *File &gt; Save As...* to name the file (I suggest `01-r-basics.R`), then save it to the `scripts` directory 
 - At the top of the script, add a minimal header, something like: 
 
 ```{r}
-# R basics tutorial
-# R. Layton 
-# 2022-06-07 
+# R basics 
+# your name 
+# date 
 ```
 
 The hash symbol `#` denotes a *comment* in R, that is, a line that isn't run. Comments are annotations to make the source code easier for humans to understand but are ignored by R.
-
-In code chunks like the one above you should see a "Copy to clipboard" icon in the upper right corner. Clicking on the icon copies the code chunk to your clipboard and you can paste it into your R script and edit as needed. 
 
 Next,  
 
@@ -141,12 +153,14 @@ Next,
 library("midfieldr")
 ```
 
+Note: In a code chunk like the one above, you can click on the "Copy to clipboard" icon in the upper right corner to enable quick copy and paste from this document to your script.
+
 Run the script by clicking the *Source* button. Alternatively, you can use the keyboard shortcuts *ctrl A* (MacOS *cmd A*) to select all lines then *ctrl Enter* (MacOS *cmd Return*) to run all lines. (See the appendices for a table of useful keyboard shortcuts.)
 
 If you see an error like this one, 
 
 ```
-    Error in library("ggplot2"): there is no package called 'ggplot2'
+    Error in library("midfieldr"): there is no package called 'midfieldr'
 ```
 
 then you should install the missing package(s) and run the script again. You can review how to install a package [here](before-you-arrive.html#install-cran-packages).  
@@ -158,9 +172,7 @@ Use your script throughout the tutorial. When a new chunk of code is given,
 - Check your result by comparing it to the result in the tutorial.
 - Check what you've learned using the **Your turn** exercises. 
 
- 
-
-## R concepts 1
+## R concepts
 
 In R speak, scalars, vectors, variables and datasets are called *objects.* To create objects (things) we use the assignment operator (`<-`). 
 
@@ -179,6 +191,10 @@ height
 ```
 
 In these notes, everything that comes back to us in the Console as the result of running a script is shown prefaced by `#>`.
+
+Objects in your R project workspace are listed in the RStudio Environment pane. At this point, we have three objects in the environment.  
+
+![](figures/rstudio-environment-x-y.png)
 
 [Warning: R is case sensitive.]{.important} `age` and `AgE` are different:
 
@@ -277,7 +293,7 @@ What do the following pairs of examples do?
 :::
 
 
-## R concepts 2
+## More R concepts
 
 From this point, please type the R code chunks in your script, save and run, and compare your results to those shown. 
 
@@ -295,7 +311,7 @@ room_area <- room_length * room_width
 room_area
 ```
 
-[On coding style.]{.important} we name R objects using so-called "snake-case", that is, lowercase letters and numbers with underscores. You may of course use any style you are comfortable with.  
+[On coding style.]{.important} We name R objects using so-called "snake-case", that is, lowercase letters and numbers with underscores. You may of course use any style you are comfortable with.  
 
 [Text objects.]{.important} You can assign text to an object.
 
@@ -417,6 +433,7 @@ seq(from = 5, to = 8, by = 0.4)
 
 - the function name is `seq` 
 - the function has three arguments `from` (the start value), `to` (the end value), and `by` (the increment between values)
+- arguments are assigned values (using `=`) within the parentheses and are separated by commas
 
 The `seq()` function has other arguments, documented in the help page. For example, we could use the argument `length.out` (instead of `by`) to fix the length of the sequence as follows:
 
@@ -439,7 +456,7 @@ Alternatively, in RStudio select the `Packages` tab and in its menu bar type the
 
 ![](figures/rstudio-package-functions.png)
 
-In this work, we use a small number of R packages:
+In MIDFIELD work, we use a small number of R packages:
 
 - midfieldr for tools to study student unit records
 - midfielddata for practice data 
@@ -450,8 +467,91 @@ In this work, we use a small number of R packages:
 
 
 
+## About R objects
+
+[Everything in R has class.]{.important}
 
 
+```{r}
+class(room_area)  # assigned earlier
+
+class(greeting)   # assigned earlier
+
+class(seq)        # R function 
+```
+
+Certain actions will change the class of an object. Suppose we create a vector from the `room_area` and `greeting` objects.
+
+```{r}
+x <- c(room_area, greeting)
+x
+
+class(x)
+```
+
+By concatenating a number and a character string, R changed the class of room area from "numeric" to "character" because all elements of a vector must have the same class.
+
+[Data frames.]{.important} The most common class of data object we will use is the *data frame*: a two-dimensional array of rows and columns in R. All values in a column are of the same type (numerical, character, logical, etc.) but columns can be of different types. 
+
+For example, the data frame `study_grad_rate` that is bundled with midfieldr has two character columns and one numerical column. 
+
+```{r}
+# a data frame bundled with midfieldr
+study_grad_rate
+
+class(study_grad_rate)
+```
+
+The `class()` function reveals that this `data.frame` object is also a `data.table` object, which is an enhanced version of R's standard data frame.
+
+::: {.panel-tabset}
+## Your turn
+For the following midfieldr objects, determine:
+
+- the class of`add_institution`
+- the class of`toy_student`
+- the names of the variables in `toy_term`
+
+## Answer
+```r
+# class of add_institution
+#> [1] "function"
+
+# class of toy_student
+#> [1] "data.table" "data.frame"
+
+# variables in toy_term
+#> [1] "mcid" "institution" "term" "cip6" "level" "hours_term" 
+```
+:::
+
+[Everything in R has structure]{.important}
+
+```{r}
+str(room_area)  # assigned earlier
+
+str(greeting)         # assigned earlier
+
+str(seq)              # R function 
+
+str(study_grad_rate)
+```
+
+
+::: {.panel-tabset}
+## Your turn
+Use `str()` to determine 
+
+1. `add_institution` arguments
+2. `toy_student` dimensions
+3. `toy_term` numerical variables
+
+## Answer
+
+1. `dframe`, `midfield_term`
+2. 100 rows x 6 columns
+3. `hours_term` 
+:::
 
 
 
@@ -487,4 +587,4 @@ setkey(df, Action)
 knitr::kable(df)
 ```
 
-## References {.appendix}
+## References

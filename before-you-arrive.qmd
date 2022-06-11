@@ -259,3 +259,17 @@ You can turn this prompt off by reopening RStudio and use the pulldown menu:
 You finished your homework!
 
 
+
+
+
+## Next steps
+
+We offer introductory guides to using R, making charts with ggplot2, and manipulating data using data.table. 
+
+Completing these tutorials before attending the Institute will make your time with us that much more productive. 
+
+- [R basics](r-basics.html)
+- [R chart basics](chart-basics.html)
+- [R data basics](data-basics.html)
+
+

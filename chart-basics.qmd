@@ -1,8 +1,8 @@
 ---
 title: "R chart basics"
+nocite: |
+  @R-data.table, @R-ggplot2
 ---
-
-An introduction to ggplot2, an R package for creating charts of quantitative data, adapted and edited from [@Bashir+Eddelbuettel:2018] licensed under [CC BY SA](https://creativecommons.org/licenses/by-sa/2.0/legalcode) by [ilustat](https://ilustat.com/post/writing-real-life-motivated-r-guides/).
 
 ```{r}
 #| label: setup
@@ -10,8 +10,17 @@ An introduction to ggplot2, an R package for creating charts of quantitative dat
 knitr::opts_chunk$set(comment = "#>", collapse = TRUE)
 ```
 
+Using ggplot2 to create charts in R. 
+
+[License.]{.important} This material is adapted from *Getting started in R: Tinyverse edition* by Bashir and Eddelbuettel [-@Bashir+Eddelbuettel:2018] which was licensed under CC BY-SA by [ilustat](https://ilustat.com/post/writing-real-life-motivated-r-guides/). This adaptation and extension, *R chart basics* by Richard Layton, is licensed under [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/legalcode). 
 
 ## Preface
+
+The rationale for using the ggplot2 package instead of other R graphics environments (e.g., lattice, base R, or grid graphics) is nicely summarized by Zumel and Mount---it "excels at combining multiple graphical elements together" even though "its syntax can take some getting used to" [@Zumel+Mount:2020, 60]. They raise three key points: 
+
+- Graphs in ggplot2 are defined only on data frames. The variables from the data frame---assigned to the x-axis, the y-axis, or to the color or size of a data marker---are called *aesthetics*, declared using the `aes()` function. 
+- The `ggplot()` function declares the graph object; its arguments can include the data frame of interest and the aesthetics. The `ggplot()` function doesn't itself produce a visualization; visualizations are produced by *layers*.
+- Layers produce the plots and plot transformations and are added to a graph object using the `+` operator. Each layer can also take a data frame and aesthetics as arguments, in addition to layer-specific parameters. Example of layers are `geom_point()` for a scatterplot and `geom_line()` for a line plot. 
 
 [Before starting.]{.important} Our tutorials assume that you
 
@@ -19,28 +28,51 @@ knitr::opts_chunk$set(comment = "#>", collapse = TRUE)
 - Have completed the [R basics](r-basics.html) guide 
 - Start your R session by launching the RStudio project you created, e.g., `midfield-institute-2022.Rproj`
 
+If you are in an RStudio project, the project name appears in the upper left corner of the RStudio window. Your project directory (folder) should look something like this:
 
-[Start a new script.]{.important} We recommend that you start a new script for this segment. 
+    midfield-institute-2022\
+        data\
+        results\
+        scripts\
+        midfield-institute-2022.Rproj
+
+
+## Getting started 
+
+[Start a new script.]{.important} I recommend that you start a new script for this segment. 
 
 - Use *File &gt; New File &gt; R Script* to create a new R script
 - *File &gt; Save As...* to name the file (we suggest `02-chart-basics.R`), then save it to the `scripts` directory 
 - At the top of the script, add a minimal header, something like: 
 
 ```{r}
-# Chart basics
-# R. Layton 
-# 2022-06-07 
+# R chart basics
+# your name  
+# date 
 ```
 
 - Use `library()` to load packages used in the script. 
 
 ```{r}
 # silently load packages
-suppressMessages(library("ggplot2"))
-suppressMessages(library("data.table"))
+suppressPackageStartupMessages(library("ggplot2"))
+suppressPackageStartupMessages(library("data.table"))
+
+# set data.table printout options
+options(
+  datatable.print.nrows = 20,
+  datatable.print.topn = 5,
+  datatable.print.class = TRUE
+)
 ```
 
-- Save and run. 
+Reminder: In a code chunk like the one above, you can click on the "Copy to clipboard" icon in the upper right corner to enable quick copy and paste from this document to your script.
+
+Use your script throughout the tutorial. When a new chunk of code is given,  
+
+- Copy the line(s) of code into your script, save, and run.     
+- Check your result by comparing it to the result in the tutorial.
+- Check what you've learned using the **Your turn** exercises. 
 
 ## Data
 
@@ -65,9 +97,9 @@ There are 578 observations (rows) and 4 variables (columns). Recall that names a
 
 The goal of graphing the data is to investigate the effect of diet on weight over time.
 
-[Download a CSV file.]{.important} In the [Before you arrive](before-you-arrive.html) instructions, you were asked to create a `data` folder (directory) at the top level of your RStudio project. 
+[Download and save a CSV file.]{.important} We use the data.table `fread()` function to read the data set from the workshop repository (an Internet connection is required). 
 
-We use `fread()` function from the data.table package to read the data set from the workshop repository (an Internet connection is required). 
+We use `fwrite()` to save the file to the `data` directory in your project folder. 
 
 ```r
 # data URL
@@ -80,7 +112,7 @@ chick_weight <- fread(data_url)
 fwrite(chick_weight, "data/chick_weight.csv")
 ```
 
-These lines of code only have to be run once because from now on you'll read the data from your local directory. Once run, the code chunk above can be commented out of your script, e.g.,  
+These lines of code are run only once. After the data are downloaded, these lines can be commented out, e.g., 
 
 ```{r}
 # # data URL
@@ -93,29 +125,11 @@ These lines of code only have to be run once because from now on you'll read the
 # fwrite(chick_weight, "data/chick_weight.csv")
 ```
 
-[Read a local CSV file.]{.important} We import the data from the local file  `chick_weight.csv` using `fread()`. This function returns a data.table object with a structure slightly different from the same data set built into R. 
+[Import a CSV file.]{.important} We import the data from the local file  `chick_weight.csv` using `fread()`. This function returns a data.table object.  A data.table is a data.frame with additional attributes.  
 
 ```{r}
 cw <- fread("data/chick_weight.csv")
 ```
-
-[Important note.]{.important} If all goes well then the data is now in your environment in an R object called `cw`. If you get the following error message then you need to change the working directory to where the data is stored.
-
-```r
-Error: 'chick_weight.csv' does not exist in current working directory ...
-```
-
-[Change the working directory in RStudio.]{.important} First, confirm that you are working within the R project your set up for the workshop. 
-
-- If you are in the project, the project name appears in the upper left corner of the RStudio window. If true, then from the RStudio menu, pull down *Session &gt; Set Working Directory &gt; To Project Directory* and run the script again. 
-- If you are not in the project, navigate to the folder you created for the project and launch the `midfield-institute-2022.Rproj` file.  
-- If that project does not exist, you can create it following the [Before you arrive](before-you-arrive.html) instructions. 
-
-When a project is opened within RStudio,
-
-- A new R session (process) is started.
-- The current working directory is set to the project directory, facilitating the use of relative file paths. 
-- Other RStudio settings are restored to where they were the last time the project was closed.
 
 [Look at the data.]{.important} To look at the data, type the object (dataset) name:
 
@@ -124,22 +138,14 @@ When a project is opened within RStudio,
 cw
 ```
 
-Several base R functions help us inspect the data: 
+Several base R functions help us inspect the data. In addition to `str()` that you used in the previous tutorial, we also have:  
 
-- `str()` compactly displays the structure
 - `summary()` provides a summary
 - `head()` and `tail()` display the beginning and end of the data set
 
 ```{r}
-str(cw)
-```
-
-This shows that the dataset has 578 observations and 4 variables as expected. The `str()` output displays the variable types (here, all integers) and the first few values. The RStudio *Environment* pane provides a very similar view.
-
-```{r}
 summary(cw)
 ```
-
 
 ::: panel-tabset
 ## Your turn
@@ -191,11 +197,11 @@ str(ChickWeight)
 
 ## Scatterplot
 
-[ggplot2 package.]{.important} We use the ggplot2 package to visualize the chick weight data. Our goal is to examine how weight changes over time conditioned by diet. 
+Our goal is to examine how weight changes over time conditioned by diet. 
 
-Don't worry too much about the details of the syntax. To learn more, try different things even if you get an error message. No harm is done! 
+Don't worry too much about the details of the ggplot2 syntax. To learn more, try different things even if you get an error message. No harm is done! 
 
-[First plot.]{.important} Let’s plot the weight data (y axis) as a function of time (x axis). The first plot is empty because there is no "geom" (a geometric object) to encode the data visually. 
+[First plot.]{.important} Let’s plot the weight data (y axis) as a function of time (x axis). The first plot is empty because there is no "geom" (a geometric layer) to encode the data visually. 
 
 ```{r}
 ggplot(data = cw, mapping = aes(x = Time, y = weight))
@@ -212,9 +218,8 @@ ggplot(data = cw, mapping = aes(x = Time, y = weight)) +
 ::: panel-tabset
 ## Your turn
 
-Switch the variables `Time` and `weight` in the code chunk.
-
-What do you think of this new plot compared to the original?
+- Switch the variables `Time` and `weight` in the code chunk.
+- What do you think of this new plot compared to the original?
 
 ## Answer
 
@@ -228,34 +233,47 @@ ggplot(data = cw, mapping = aes(x = weight, y = Time)) +
 ```
 :::
 
-##  Add a category
+[Location of `+`.]{.important} The `+` symbol that adds a layer to a ggplot2 object cannot start a new line. Using the code above to illustrate, 
 
-[Add color for Diet.]{.important} The graph does not differentiate between the diets. Essentially we use color to encode a third variable, `Diet`, a categorical variable. One important thing to notice is that all arguments being "mapped" must be names of variables in the `cw` data frame. 
+
+    # correct
+    ggplot(cw, aes(weight, Time)) + geom_point()
+    
+    # correct
+    ggplot(cw, aes(weight, Time)) + 
+      geom_point()
+    
+    # incorrect 
+    ggplot(cw, aes(weight, Time)) 
+      + geom_point()
+
+
+## Another variable
+
+[Color encodes a third variable.]{.important} The graph does not differentiate between the diets. In the next step, we use color to encode `Diet`, a categorical variable with four levels: diets 1, 2, 3, and 4. One important thing to notice is that all arguments being "mapped" must be names of variables in the `cw` data frame. 
 
 ```{r}
 ggplot(data = cw, mapping = aes(x = Time, y = weight, color = factor(Diet))) +
   geom_point()
 ```
 
-It is difficult to conclude anything from this graph as the points are printed on top of one another (with diet 1 underneath and diet 4 at the top).
+It is difficult to conclude anything from this graph as the points are printed on top of one another (with diet 4 overprinting diet 3 which overprints diet 2, etc.).
 
 
 ## Faceted chart
 
-[Factor variables.]{.important} Before we continue, we make an important change to the `cw` dataset by making `Diet` and `Time factor` variables. This means that R will treat them as categorical variables instead of continuous variables. It will simplify our coding.
+[Factor variables.]{.important} Before we continue, we make an important change to the `cw` dataset by transforming `Diet` and `Time` into *factor* variables. Factors are treated by R as categorical variables instead of continuous variables. It will simplify our coding.
 
-
+The `:=` operator (from data.table) alters variables “in-place”, with no explicit assignment (`<-`). We revisit the `:=` operator in the *R data basics* tutorial.
 
 ```{r}
-# create factors using data.table syntax
+# create factors
 cw[, Diet := factor(Diet)]
 cw[, Time := factor(Time)]
 
-# notice the difference ?
+# notice the difference?
 summary(cw) 
 ```
-
-The `:=` operator altered the variables “in-place”, and no explicit assignment was made. This is a key feature of data.table which operated “by reference”: changes are made in reference to one instance of the cw variable, rather than by creating updated copies. We revisit the `:=` operator below.
 
 [facet_wrap() function.]{.important} `facet_wrap()` is a ggplot2 function that plots variables in separate facets, or panels. In this case, each facet contains one of the four diets. 
 
@@ -266,7 +284,6 @@ ggplot(data = cw, mapping = aes(x = Time, y = weight, color = Diet)) +
   facet_wrap(vars(Diet)) +
   theme(legend.position = "bottom")
 ```
-
 
 
 ::: panel-tabset

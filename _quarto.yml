@@ -36,6 +36,8 @@ website:
         file: chart-basics.qmd
       - text: "R data basics"
         file: data-basics.qmd
+      - text: "License"
+        file: license.qmd
         
   comments: 
     utterances:

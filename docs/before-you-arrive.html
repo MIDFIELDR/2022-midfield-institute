@@ -228,6 +228,11 @@ div.csl-indent {
   <a href="./data-basics.html" class="sidebar-item-text sidebar-link">R data basics</a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./license.html" class="sidebar-item-text sidebar-link">License</a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -245,6 +250,7 @@ div.csl-indent {
   <li><a href="#install-midfieldr" id="toc-install-midfieldr" class="nav-link" data-scroll-target="#install-midfieldr">Install midfieldr</a></li>
   <li><a href="#install-midfielddata" id="toc-install-midfielddata" class="nav-link" data-scroll-target="#install-midfielddata">Install midfielddata</a></li>
   <li><a href="#finish-the-homework" id="toc-finish-the-homework" class="nav-link" data-scroll-target="#finish-the-homework">Finish the homework</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next steps</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/MIDFIELDR/2022-midfield-institute/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -312,11 +318,11 @@ div.csl-indent {
 </ul>
 <p>Once the installation is complete, you can take a 2-minute tour of the RStudio interface.</p>
 <ul>
-<li><a href="https://www.youtube.com/embed/kfcX5DEMAp4?start=57&amp;end=152">Let’s start (00:57–02:32)</a> by R Ladies Sydney <span class="citation" data-cites="RLadiesSydney:2018:Lesson1">(<a href="#ref-RLadiesSydney:2018:Lesson1" role="doc-biblioref"><strong>RLadiesSydney:2018:Lesson1?</strong></a>)</span></li>
+<li><a href="https://www.youtube.com/embed/kfcX5DEMAp4?start=57&amp;end=152">Let’s start (00:57–02:32)</a> by R Ladies Sydney <span class="citation" data-cites="RLadiesSydney:2018:Lesson1">(<a href="#ref-RLadiesSydney:2018:Lesson1" role="doc-biblioref">Richmond, 2018</a>)</span></li>
 </ul>
 <p>The same video includes a longer (7 minute) tour of the four quadrants (panes) in RStudio if you are interested.</p>
 <ul>
-<li><a href="https://www.youtube.com/embed/kfcX5DEMAp4?start=441&amp;end=880">The RStudio quadrants (07:21–14:40)</a> by R Ladies Sydney <span class="citation" data-cites="RLadiesSydney:2018:Lesson1">(<a href="#ref-RLadiesSydney:2018:Lesson1" role="doc-biblioref"><strong>RLadiesSydney:2018:Lesson1?</strong></a>)</span></li>
+<li><a href="https://www.youtube.com/embed/kfcX5DEMAp4?start=441&amp;end=880">The RStudio quadrants (07:21–14:40)</a> by R Ladies Sydney <span class="citation" data-cites="RLadiesSydney:2018:Lesson1">(<a href="#ref-RLadiesSydney:2018:Lesson1" role="doc-biblioref">Richmond, 2018</a>)</span></li>
 </ul>
 </section>
 <section id="start-the-homework" class="level2">
@@ -325,7 +331,7 @@ div.csl-indent {
 <p>We start by creating an RStudio <em>Project</em> file and directory. You can recognize an R project file by its <em>.Rproj</em> suffix.</p>
 <p>If you prefer your instructions with commentary,</p>
 <ul>
-<li><a href="https://www.youtube.com/embed/kfcX5DEMAp4?start=154&amp;end=290" target="_blank">Start with a Project (02:34–04:50)</a> by R Ladies Sydney <span class="citation" data-cites="RLadiesSydney:2018:Lesson1">(<a href="#ref-RLadiesSydney:2018:Lesson1" role="doc-biblioref"><strong>RLadiesSydney:2018:Lesson1?</strong></a>)</span></li>
+<li><a href="https://www.youtube.com/embed/kfcX5DEMAp4?start=154&amp;end=290" target="_blank">Start with a Project (02:34–04:50)</a> by R Ladies Sydney <span class="citation" data-cites="RLadiesSydney:2018:Lesson1">(<a href="#ref-RLadiesSydney:2018:Lesson1" role="doc-biblioref">Richmond, 2018</a>)</span></li>
 </ul>
 <p>If you prefer basic written instructions,</p>
 <ul>
@@ -366,13 +372,13 @@ div.csl-indent {
 <p><img src="figures/rstudio-new-folder.png" class="img-fluid" alt="rstudio new folder"></p>
 <p>For a video guide,</p>
 <ul>
-<li><a href="https://www.youtube.com/embed/kfcX5DEMAp4?start=290&amp;end=368" target="_blank">Make some folders (04:50–06:08)</a> by R Ladies Sydney <span class="citation" data-cites="RLadiesSydney:2018:Lesson1">(<a href="#ref-RLadiesSydney:2018:Lesson1" role="doc-biblioref"><strong>RLadiesSydney:2018:Lesson1?</strong></a>)</span></li>
+<li><a href="https://www.youtube.com/embed/kfcX5DEMAp4?start=290&amp;end=368" target="_blank">Make some folders (04:50–06:08)</a> by R Ladies Sydney <span class="citation" data-cites="RLadiesSydney:2018:Lesson1">(<a href="#ref-RLadiesSydney:2018:Lesson1" role="doc-biblioref">Richmond, 2018</a>)</span></li>
 </ul>
 </section>
 <section id="install-cran-packages" class="level2">
 <h2 class="anchored" data-anchor-id="install-cran-packages">Install CRAN packages</h2>
-<p>The fundamental unit of shareable code in R is the <em>package.</em> For the R novice, an R package is like an “app” for R—a collection of functions, data, and documentation for doing work in R that is easily shared with others <span class="citation" data-cites="wickham2014advanced">(<a href="#ref-wickham2014advanced" role="doc-biblioref"><strong>wickham2014advanced?</strong></a>)</span>.</p>
-<p>Most packages are obtained from the <a href="https://cran.r-project.org/" target="_blank">CRAN</a> website <span class="citation" data-cites="cranweb">(<a href="#ref-cranweb" role="doc-biblioref"><strong>cranweb?</strong></a>)</span>. To install a CRAN package using RStudio:</p>
+<p>The fundamental unit of shareable code in R is the <em>package.</em> For the R novice, an R package is like an “app” for R—a collection of functions, data, and documentation for doing work in R that is easily shared with others <span class="citation" data-cites="wickham2014advanced">(<a href="#ref-wickham2014advanced" role="doc-biblioref">Wickham, 2014</a>)</span>.</p>
+<p>Most packages are obtained from the <a href="https://cran.r-project.org/" target="_blank">CRAN</a> website <span class="citation" data-cites="cranweb">(<a href="#ref-cranweb" role="doc-biblioref"><em><span>The Comprehensive R Archive Network</span></em>, 2018-04-22</a>)</span>. To install a CRAN package using RStudio:</p>
 <ul>
 <li>Launch RStudio</li>
 </ul>
@@ -447,6 +453,16 @@ socviz</code></pre>
 <li>In the dialog box, <em>Save workspace to .RData on exit:</em> Select “Never”</li>
 </ul>
 <p>You finished your homework!</p>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
+<p>We offer introductory guides to using R, making charts with ggplot2, and manipulating data using data.table.</p>
+<p>Completing these tutorials before attending the Institute will make your time with us that much more productive.</p>
+<ul>
+<li><a href="r-basics.html">R basics</a></li>
+<li><a href="chart-basics.html">R chart basics</a></li>
+<li><a href="data-basics.html">R data basics</a></li>
+</ul>
 
 
 
@@ -455,6 +471,15 @@ socviz</code></pre>
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography">
 <div id="ref-R-data.table" class="csl-entry" role="doc-biblioentry">
 Dowle, M., &amp; Srinivasan, A. (2021). <em>Data.table: Extension of ‘data.frame‘</em>. <a href="https://CRAN.R-project.org/package=data.table">https://CRAN.R-project.org/package=data.table</a>
+</div>
+<div id="ref-RLadiesSydney:2018:Lesson1" class="csl-entry" role="doc-biblioentry">
+Richmond, J. (2018). <em><span class="nocase">Basic Basics Lesson 1: An opinionated tour of RStudio</span></em>. <a href="https://youtu.be/kfcX5DEMAp4">https://youtu.be/kfcX5DEMAp4</a>
+</div>
+<div id="ref-cranweb" class="csl-entry" role="doc-biblioentry">
+<em><span>The Comprehensive R Archive Network</span></em>. (2018-04-22). <a href="https://cran.r-project.org/">https://cran.r-project.org/</a>
+</div>
+<div id="ref-wickham2014advanced" class="csl-entry" role="doc-biblioentry">
+Wickham, H. (2014). <em><span>Advanced R</span></em>. Taylor &amp; Francis.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -556,7 +581,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       <div class="nav-footer-center">
         <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./license.html">License</a>
+    <a class="nav-link active" href="./license.html" aria-current="page">License</a>
   </li>  
 </ul>
       </div>
