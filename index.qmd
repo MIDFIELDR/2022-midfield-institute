@@ -2,10 +2,11 @@
 title: "Welcome"
 ---
 
-2022 MIDFIELD Institute    
-Date: August 3--5 (tentative)    
-Time: 1--5 pm Eastern Daylight Time (US)    
+**2022 MIDFIELD Institute**    
+Date: August 3--5    
+Time: 1--5 pm Eastern Time (US)    
 Location: Virtual   
+Pre-workshop: 1--5 pm, August 2
 
 ![](figures/midfield-grad-logo.png){width=25%}
 

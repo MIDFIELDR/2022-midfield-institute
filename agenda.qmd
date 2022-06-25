@@ -2,5 +2,121 @@
 title: "Agenda"
 ---
 
+## Tuesday, August 2
 
-list of to-dos
+[Join the online office hours](https://purdue-edu.zoom.us/j/96788326845?pwd=VTNHRENkS3V2R3Z4VkJsMXU2ZlhFdz09
+)
+
+1:00--5:00 pm Eastern Time 
+
+: *Office hours.* We are available for answering questions about MIDFIELD and resolving any problems  you might be having using R or midfieldr. 
+
+If you haven't worked through the three R basics tutorials, please consider using this time on Tuesday to work on them while we are available to answer questions in real-time.  
+
+**Pre-workshop tutorials.** Completing these tutorials before attending the Institute will make your time with us that much more productive. 
+
+- [R basics](r-basics.html)   
+- [R chart basics](chart-basics.html)
+- [R data basics](data-basics.html)
+
+
+
+
+
+
+
+
+
+## Wednesday, August 3
+
+[Join the online meeting](https://purdue-edu.zoom.us/j/96788326845?pwd=VTNHRENkS3V2R3Z4VkJsMXU2ZlhFdz09
+)
+
+1:00--2:00 Eastern Time
+
+: *Introductions.* Introduce facilitators and participants, objectives, and  MIDFIELD.
+
+2:00--3:00
+
+: *Exploring data structure.* Exploring data excerpts manually.
+
+3:00--5:00 
+
+: *Guided practice.* Self-paced case study using midfieldr and midfielddata. Real-time help. 
+
+- [Case study: Goals](https://midfieldr.github.io/midfieldr/articles/art-001-case-goals.html)
+- [Case study: Data](https://midfieldr.github.io/midfieldr/articles/art-002-case-data.html)
+
+**Homework**
+
+Complete the guided practice "Data" tutorial. 
+
+
+
+
+
+
+
+
+## Thursday, August 4
+
+[Join the online meeting](https://purdue-edu.zoom.us/j/96788326845?pwd=VTNHRENkS3V2R3Z4VkJsMXU2ZlhFdz09
+)
+
+1:00--1:30 Eastern Time
+
+: *Metaphors and metrics.* Pipelines, pathways, and ecosystems.
+
+
+1:30--2:30
+
+: *Guided practice.* Continue the case study.
+
+- [Case study: Results](https://midfieldr.github.io/midfieldr/articles/art-003-case-results.html)
+
+
+2:30--3:30
+
+: *Data visualization.* Limitations of common graph types.
+
+3:30--5:00 
+
+: *Selecting a research question.* Define a problem in the data that interests you with our assistance, form small groups. Report out your research questions and discussion. 
+
+
+**Homework**
+
+- Complete the guided practice "Results" tutorial. 
+- Refine your plan for working on your research question.  
+
+
+
+
+
+
+
+## Friday, August 5
+
+[Join the online meeting](https://purdue-edu.zoom.us/j/96788326845?pwd=VTNHRENkS3V2R3Z4VkJsMXU2ZlhFdz09
+)
+
+1:00--2:00 Eastern Time
+
+: *Data visualization.* Expanding your graphical repertoire. 
+
+2:00--3:30 
+
+: *Work on your research question.* Consulting us your progress, discussion 
+
+3:30--4:30
+
+: *Progress report* shared with the group. 
+
+4:40--4:45
+
+: *Wrap up.*
+
+
+
+
+

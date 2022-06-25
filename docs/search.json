@@ -4,7 +4,28 @@
     "href": "agenda.html",
     "title": "Agenda",
     "section": "",
-    "text": "list of to-dos"
+    "text": "Join the online office hours\n\n1:00–5:00 pm Eastern Time\n\nOffice hours. We are available for answering questions about MIDFIELD and resolving any problems you might be having using R or midfieldr.\n\n\nIf you haven’t worked through the three R basics tutorials, please consider using this time on Tuesday to work on them while we are available to answer questions in real-time.\nPre-workshop tutorials. Completing these tutorials before attending the Institute will make your time with us that much more productive.\n\nR basics\n\nR chart basics\nR data basics"
+  },
+  {
+    "objectID": "agenda.html#wednesday-august-3",
+    "href": "agenda.html#wednesday-august-3",
+    "title": "Agenda",
+    "section": "Wednesday, August 3",
+    "text": "Wednesday, August 3\nJoin the online meeting\n\n1:00–2:00 Eastern Time\n\nIntroductions. Introduce facilitators and participants, objectives, and MIDFIELD.\n\n2:00–3:00\n\nExploring data structure. Exploring data excerpts manually.\n\n3:00–5:00\n\nGuided practice. Self-paced case study using midfieldr and midfielddata. Real-time help.\n\n\n\nCase study: Goals\nCase study: Data\n\nHomework\nComplete the guided practice “Data” tutorial."
+  },
+  {
+    "objectID": "agenda.html#thursday-august-4",
+    "href": "agenda.html#thursday-august-4",
+    "title": "Agenda",
+    "section": "Thursday, August 4",
+    "text": "Thursday, August 4\nJoin the online meeting\n\n1:00–1:30 Eastern Time\n\nMetaphors and metrics. Pipelines, pathways, and ecosystems.\n\n1:30–2:30\n\nGuided practice. Continue the case study.\n\n\n\nCase study: Results\n\n\n2:30–3:30\n\nData visualization. Limitations of common graph types.\n\n3:30–5:00\n\nSelecting a research question. Define a problem in the data that interests you with our assistance, form small groups. Report out your research questions and discussion.\n\n\nHomework\n\nComplete the guided practice “Results” tutorial.\nRefine your plan for working on your research question."
+  },
+  {
+    "objectID": "agenda.html#friday-august-5",
+    "href": "agenda.html#friday-august-5",
+    "title": "Agenda",
+    "section": "Friday, August 5",
+    "text": "Friday, August 5\nJoin the online meeting\n\n1:00–2:00 Eastern Time\n\nData visualization. Expanding your graphical repertoire.\n\n2:00–3:30\n\nWork on your research question. Consulting us your progress, discussion\n\n3:30–4:30\n\nProgress report shared with the group.\n\n4:40–4:45\n\nWrap up."
   },
   {
     "objectID": "before-you-arrive.html",
@@ -28,11 +49,11 @@
     "text": "New to R?\nThis section is for anyone who has not yet installed R or RStudio.\nThe first steps are to install R and RStudio. Windows users may have to login as an Administrator before installing the software.\n\nInstall R for your operating system\n\nInstall RStudio, a user interface for R\n\nOnce the installation is complete, you can take a 2-minute tour of the RStudio interface.\n\nLet’s start (00:57–02:32) by R Ladies Sydney (Richmond, 2018)\n\nThe same video includes a longer (7 minute) tour of the four quadrants (panes) in RStudio if you are interested.\n\nThe RStudio quadrants (07:21–14:40) by R Ladies Sydney (Richmond, 2018)"
   },
   {
-    "objectID": "before-you-arrive.html#start-the-homework",
-    "href": "before-you-arrive.html#start-the-homework",
+    "objectID": "before-you-arrive.html#start-the-setup",
+    "href": "before-you-arrive.html#start-the-setup",
     "title": "Before you arrive",
-    "section": "Start the homework",
-    "text": "Start the homework\nOnce you have R and RStudio up and running on your system, we have a short set of setup instructions to help prepare you for the workshop R tutorials.\nWe start by creating an RStudio Project file and directory. You can recognize an R project file by its .Rproj suffix.\nIf you prefer your instructions with commentary,\n\nStart with a Project (02:34–04:50) by R Ladies Sydney (Richmond, 2018)\n\nIf you prefer basic written instructions,\n\nRStudio, File > New Project… > New Directory > New Project\nOr, click the New Project button in the Console ribbon,\n\n\nIn the dialog box that appears,\n\nType the workshop name as the directory name, for example, midfield-institute-2022\n\nUse the browse button to select a location on your computer to create the project folder\n\nClick the Create Project button\n\nWhenever you work with the workshop materials, launch the midfield-institute-2022.Rproj file to start the session."
+    "section": "Start the setup",
+    "text": "Start the setup\nOnce you have R and RStudio up and running on your system, we have a short set of setup instructions to help prepare you for the workshop R tutorials.\nWe start by creating an RStudio Project file and directory. You can recognize an R project file by its .Rproj suffix.\nIf you prefer your instructions with commentary,\n\nStart with a Project (02:34–04:50) by R Ladies Sydney (Richmond, 2018)\n\nIf you prefer basic written instructions,\n\nRStudio, File > New Project… > New Directory > New Project\nOr, click the New Project button in the Console ribbon,\n\n\nIn the dialog box that appears,\n\nType the workshop name as the directory name, for example, midfield-institute-2022\n\nUse the browse button to select a location on your computer to create the project folder\n\nClick the Create Project button\n\nWhenever you work with the workshop materials, launch the midfield-institute-2022.Rproj file to start the session."
   },
   {
     "objectID": "before-you-arrive.html#add-some-folders",
@@ -46,14 +67,14 @@
     "href": "before-you-arrive.html#install-cran-packages",
     "title": "Before you arrive",
     "section": "Install CRAN packages",
-    "text": "Install CRAN packages\nThe fundamental unit of shareable code in R is the package. For the R novice, an R package is like an “app” for R—a collection of functions, data, and documentation for doing work in R that is easily shared with others (Wickham, 2014).\nMost packages are obtained from the CRAN website (The Comprehensive R Archive Network, 2018-04-22). To install a CRAN package using RStudio:\n\nLaunch RStudio\n\nThe RStudio interface has several panes. We want the Files/Plots/Packages pane.\n\nSelect the Packages tab\n\n\nNext,\n\nClick Install on the ribbon\nIn the dialog box, type the name of the package. For our first package, type data.table to install the data.table package (Dowle & Srinivasan, 2021)\nCheck the Install dependencies box\nClick the Install button\n\n\nDuring the installation, Windows users might get a warning message about Rtools, something like:\nWARNING: Rtools is required to build R packages but is not currently installed. Please download etc.\n\nRtools is needed for packages with C/C++/FORTRAN code from source—which does not apply to us. You may ignore the warning and carry on.\nIn the RStudio Console, you should see a message like this one,\npackage 'data.table' successfully unpacked and MD5 sums checked\nIf successful, the package will appear in the Packages pane, e.g.,\n\nRepeat the process for the following packages:\nggplot2\nsocviz\nAlternatively, you can install them all at once by typing in the Console:\npackages_we_use <- c(\"data.table\", \"ggplot2\", \"socviz\")\ninstall.packages(packages_we_use)"
+    "text": "Install CRAN packages\nThe fundamental unit of shareable code in R is the package. For the R novice, an R package is like an “app” for R—a collection of functions, data, and documentation for doing work in R that is easily shared with others (Wickham, 2014).\nMost packages are obtained from the CRAN website (The Comprehensive R Archive Network, 2018-04-22). To install a CRAN package using RStudio:\n\nLaunch RStudio\n\nThe RStudio interface has several panes. We want the Files/Plots/Packages pane.\n\nSelect the Packages tab\n\n\nNext,\n\nClick Install on the ribbon\nIn the dialog box, type the name of the package. For our first package, type data.table to install the data.table package (Dowle & Srinivasan, 2021)\nCheck the Install dependencies box\nClick the Install button\n\n\nDuring the installation, Windows users might get a warning message about Rtools, something like:\nWARNING: Rtools is required to build R packages but is not currently installed. Please download etc.\n\nRtools is needed for packages with C/C++/FORTRAN code from source—which does not apply to us. You may ignore the warning and carry on.\nIn the RStudio Console, you should see a message like this one,\npackage 'data.table' successfully unpacked and MD5 sums checked\nIf successful, the package will appear in the Packages pane, e.g.,\n\nRepeat the process for the following packages:\nggplot2\ncheckmate\nwrapr\nAlternatively, you can install them all at once by typing in the Console:\npackages_we_use <- c(\"data.table\", \"ggplot2\", \"checkmate\", \"wrapr\")\ninstall.packages(packages_we_use)"
   },
   {
     "objectID": "before-you-arrive.html#install-midfieldr",
     "href": "before-you-arrive.html#install-midfieldr",
     "title": "Before you arrive",
     "section": "Install midfieldr",
-    "text": "Install midfieldr\nmidfieldr is not yet available from CRAN. To install the development version of midfieldr from its drat repository, type in the Console:\n# type in the RStudio Console \ninstall.packages(\"midfieldr\", \n                 repos = \"https://MIDFIELDR.github.io/drat/\", \n                 type = \"source\")\nYou can confirm a successful installation by running the following lines to bring up the package help page in the Help window.\n# type in the RStudio Console \nlibrary(\"midfieldr\")\n? `midfieldr-package`\n\n# or, equivalently\nhelp(\"midfieldr-package\")\nIf the installation is successful, the code chunk above should produce a view of the help page as shown here."
+    "text": "Install midfieldr\nmidfieldr is not yet available from CRAN. To install the development version of midfieldr from its drat repository, type in the Console:\n# type in the RStudio Console \ninstall.packages(\"midfieldr\", \n                 repos = \"https://MIDFIELDR.github.io/drat/\", \n                 type = \"source\")\nYou can confirm a successful installation by running the following lines to bring up the package help page in the Help window.\n# type in the RStudio Console \nlibrary(\"midfieldr\")\n? \"midfieldr-package\"\n\n# or, equivalently\nhelp(\"midfieldr-package\")\nIf the installation is successful, the code chunk above should produce a view of the help page as shown here."
   },
   {
     "objectID": "before-you-arrive.html#install-midfielddata",
@@ -63,18 +84,18 @@
     "text": "Install midfielddata\nBecause of its size, the data package is stored in a drat repository instead of CRAN. Installation takes time; please be patient and wait for the Console prompt “>” to reappear.\nType (or copy and paste) the following lines in the RStudio Console.\n# type in the RStudio Console  \ninstall.packages(\"midfielddata\", \n                 repos = \"https://MIDFIELDR.github.io/drat/\", \n                 type = \"source\")\n# be patient\nOnce the Console prompt “>” reappears, you can confirm a successful installation by viewing the package help page. In the Console, run:\n# type in the RStudio Console  \nlibrary(\"midfielddata\")\nhelp(\"midfielddata-package\")\nIf the installation is successful, the code chunk above should produce a view of the help page as shown here."
   },
   {
-    "objectID": "before-you-arrive.html#finish-the-homework",
-    "href": "before-you-arrive.html#finish-the-homework",
+    "objectID": "before-you-arrive.html#finish-the-setup",
+    "href": "before-you-arrive.html#finish-the-setup",
     "title": "Before you arrive",
-    "section": "Finish the homework",
-    "text": "Finish the homework\nAs a final task, save your open files and close RStudio.\nIf you get a prompt about saving your workspace image, the answer is No. \nYou can turn this prompt off by reopening RStudio and use the pulldown menu:\n\nTools > Global Options…\nIn the dialog box, Save workspace to .RData on exit: Select “Never”\n\nYou finished your homework!"
+    "section": "Finish the setup",
+    "text": "Finish the setup\nAs a final task, save your open files and close RStudio.\nIf you get a prompt about saving your workspace image, the answer is No. \nYou can turn this prompt off by reopening RStudio and use the pulldown menu:\n\nTools > Global Options…\nIn the dialog box, Save workspace to .RData on exit: Select “Never”"
   },
   {
-    "objectID": "before-you-arrive.html#next-steps",
-    "href": "before-you-arrive.html#next-steps",
+    "objectID": "before-you-arrive.html#homework",
+    "href": "before-you-arrive.html#homework",
     "title": "Before you arrive",
-    "section": "Next steps",
-    "text": "Next steps\nWe offer introductory guides to using R, making charts with ggplot2, and manipulating data using data.table.\nCompleting these tutorials before attending the Institute will make your time with us that much more productive.\n\nR basics\nR chart basics\nR data basics"
+    "section": "Homework",
+    "text": "Homework\nIf you are new to R (or new to the ggplot2 or data.table packages), we recommend you complete the three introductory tutorials listed below. Completing these tutorials before attending the Institute will make your time with us that much more productive.\n\nR basics\nR chart basics\nR data basics\n\nOn Tuesday, August 2—the day before the Institute—we plan to hold online office hours to answer your questions about MIDFIELD and help resolve any problems you might be having using R or midfieldr. See the Agenda for more information."
   },
   {
     "objectID": "chart-basics.html",

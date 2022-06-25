@@ -244,13 +244,13 @@ div.csl-indent {
   <ul>
   <li><a href="#already-use-r" id="toc-already-use-r" class="nav-link active" data-scroll-target="#already-use-r">Already use R?</a></li>
   <li><a href="#new-to-r" id="toc-new-to-r" class="nav-link" data-scroll-target="#new-to-r">New to R?</a></li>
-  <li><a href="#start-the-homework" id="toc-start-the-homework" class="nav-link" data-scroll-target="#start-the-homework">Start the homework</a></li>
+  <li><a href="#start-the-setup" id="toc-start-the-setup" class="nav-link" data-scroll-target="#start-the-setup">Start the setup</a></li>
   <li><a href="#add-some-folders" id="toc-add-some-folders" class="nav-link" data-scroll-target="#add-some-folders">Add some folders</a></li>
   <li><a href="#install-cran-packages" id="toc-install-cran-packages" class="nav-link" data-scroll-target="#install-cran-packages">Install CRAN packages</a></li>
   <li><a href="#install-midfieldr" id="toc-install-midfieldr" class="nav-link" data-scroll-target="#install-midfieldr">Install midfieldr</a></li>
   <li><a href="#install-midfielddata" id="toc-install-midfielddata" class="nav-link" data-scroll-target="#install-midfielddata">Install midfielddata</a></li>
-  <li><a href="#finish-the-homework" id="toc-finish-the-homework" class="nav-link" data-scroll-target="#finish-the-homework">Finish the homework</a></li>
-  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next steps</a></li>
+  <li><a href="#finish-the-setup" id="toc-finish-the-setup" class="nav-link" data-scroll-target="#finish-the-setup">Finish the setup</a></li>
+  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">Homework</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/MIDFIELDR/2022-midfield-institute/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -325,8 +325,8 @@ div.csl-indent {
 <li><a href="https://www.youtube.com/embed/kfcX5DEMAp4?start=441&amp;end=880">The RStudio quadrants (07:21–14:40)</a> by R Ladies Sydney <span class="citation" data-cites="RLadiesSydney:2018:Lesson1">(<a href="#ref-RLadiesSydney:2018:Lesson1" role="doc-biblioref">Richmond, 2018</a>)</span></li>
 </ul>
 </section>
-<section id="start-the-homework" class="level2">
-<h2 class="anchored" data-anchor-id="start-the-homework">Start the homework</h2>
+<section id="start-the-setup" class="level2">
+<h2 class="anchored" data-anchor-id="start-the-setup">Start the setup</h2>
 <p>Once you have R and RStudio up and running on your system, we have a short set of setup instructions to help prepare you for the workshop R tutorials.</p>
 <p>We start by creating an RStudio <em>Project</em> file and directory. You can recognize an R project file by its <em>.Rproj</em> suffix.</p>
 <p>If you prefer your instructions with commentary,</p>
@@ -405,9 +405,10 @@ div.csl-indent {
 <p><img src="figures/rstudio-packages-3.png" class="img-fluid" alt="rstudio packages pane"></p>
 <p>Repeat the process for the following packages:</p>
 <pre><code>ggplot2
-socviz</code></pre>
+checkmate
+wrapr</code></pre>
 <p>Alternatively, you can install them all at once by typing in the Console:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>packages_we_use <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"data.table"</span>, <span class="st">"ggplot2"</span>, <span class="st">"socviz"</span>)</span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>packages_we_use <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"data.table"</span>, <span class="st">"ggplot2"</span>, <span class="st">"checkmate"</span>, <span class="st">"wrapr"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(packages_we_use)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="install-midfieldr" class="level2">
@@ -420,7 +421,7 @@ socviz</code></pre>
 <p>You can confirm a successful installation by running the following lines to bring up the package help page in the Help window.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type in the RStudio Console </span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"midfieldr"</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>? <span class="st">`</span><span class="at">midfieldr-package</span><span class="st">`</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>? <span class="st">"midfieldr-package"</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># or, equivalently</span></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(<span class="st">"midfieldr-package"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -443,8 +444,8 @@ socviz</code></pre>
 <p>If the installation is successful, the code chunk above should produce a view of the help page as shown here.</p>
 <p><img src="figures/README-midfielddata-help-page-2.png" class="img-fluid" alt="midfiedldata help page pane"></p>
 </section>
-<section id="finish-the-homework" class="level2">
-<h2 class="anchored" data-anchor-id="finish-the-homework">Finish the homework</h2>
+<section id="finish-the-setup" class="level2">
+<h2 class="anchored" data-anchor-id="finish-the-setup">Finish the setup</h2>
 <p>As a final task, save your open files and close RStudio.</p>
 <p>If you get a prompt about saving your workspace image, the answer is No.&nbsp;</p>
 <p>You can turn this prompt off by reopening RStudio and use the pulldown menu:</p>
@@ -452,17 +453,16 @@ socviz</code></pre>
 <li><em>Tools &gt; Global Options…</em></li>
 <li>In the dialog box, <em>Save workspace to .RData on exit:</em> Select “Never”</li>
 </ul>
-<p>You finished your homework!</p>
 </section>
-<section id="next-steps" class="level2">
-<h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
-<p>We offer introductory guides to using R, making charts with ggplot2, and manipulating data using data.table.</p>
-<p>Completing these tutorials before attending the Institute will make your time with us that much more productive.</p>
+<section id="homework" class="level2">
+<h2 class="anchored" data-anchor-id="homework">Homework</h2>
+<p>If you are new to R (or new to the ggplot2 or data.table packages), we recommend you complete the three introductory tutorials listed below. Completing these tutorials before attending the Institute will make your time with us that much more productive.</p>
 <ul>
 <li><a href="r-basics.html">R basics</a></li>
 <li><a href="chart-basics.html">R chart basics</a></li>
 <li><a href="data-basics.html">R data basics</a></li>
 </ul>
+<p>On Tuesday, August 2—the day before the Institute—we plan to hold online office hours to answer your questions about MIDFIELD and help resolve any problems you might be having using R or midfieldr. See the <a href="agenda.html">Agenda</a> for more information.</p>
 
 
 

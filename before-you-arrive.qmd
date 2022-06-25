@@ -72,7 +72,7 @@ The same video includes a longer (7 minute) tour of the four quadrants (panes) i
 - [The RStudio quadrants (07:21--14:40)](https://www.youtube.com/embed/kfcX5DEMAp4?start=441&end=880) by R Ladies Sydney [@RLadiesSydney:2018:Lesson1] 
 
 
-## Start the homework
+## Start the setup
 
 Once you have R and RStudio up and running on your system, we have a short set of setup instructions to help prepare you for the workshop R tutorials. 
 
@@ -174,12 +174,13 @@ If successful, the package will appear in the Packages pane, e.g.,
 Repeat the process for the following packages: 
 
     ggplot2
-    socviz
+    checkmate
+    wrapr
 
 Alternatively, you can install them all at once by typing in the Console: 
 
 ``` r
-packages_we_use <- c("data.table", "ggplot2", "socviz")
+packages_we_use <- c("data.table", "ggplot2", "checkmate", "wrapr")
 install.packages(packages_we_use)
 ```
 
@@ -203,7 +204,7 @@ You can confirm a successful installation by running the following lines to brin
 ``` r
 # type in the RStudio Console 
 library("midfieldr")
-? `midfieldr-package`
+? "midfieldr-package"
 
 # or, equivalently
 help("midfieldr-package")
@@ -242,7 +243,7 @@ If the installation is successful, the code chunk above should produce a view of
 
 
 
-## Finish the homework
+## Finish the setup
 
 As a final task, save your open files and close RStudio. 
 
@@ -256,20 +257,14 @@ You can turn this prompt off by reopening RStudio and use the pulldown menu:
 
 
 
-You finished your homework!
 
 
+## Homework
 
-
-
-## Next steps
-
-We offer introductory guides to using R, making charts with ggplot2, and manipulating data using data.table. 
-
-Completing these tutorials before attending the Institute will make your time with us that much more productive. 
+If you are new to R (or new to the ggplot2 or data.table packages), we recommend you complete the three introductory tutorials listed below.  Completing these tutorials before attending the Institute will make your time with us that much more productive. 
 
 - [R basics](r-basics.html)
 - [R chart basics](chart-basics.html)
 - [R data basics](data-basics.html)
 
-
+On Tuesday, August 2---the day before the Institute---we plan to hold online office hours to answer your questions about MIDFIELD and help resolve any problems you might be having using R or midfieldr. See the [Agenda](agenda.html) for more information. 
