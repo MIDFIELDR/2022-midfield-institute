@@ -74,7 +74,7 @@
     "href": "before-you-arrive.html#install-midfieldr",
     "title": "Before you arrive",
     "section": "Install midfieldr",
-    "text": "Install midfieldr\nmidfieldr is not yet available from CRAN. To install the development version of midfieldr from its drat repository, type in the Console:\n# type in the RStudio Console \ninstall.packages(\"midfieldr\", \n                 repos = \"https://MIDFIELDR.github.io/drat/\", \n                 type = \"source\")\nYou can confirm a successful installation by running the following lines to bring up the package help page in the Help window.\n# type in the RStudio Console \nlibrary(\"midfieldr\")\n? \"midfieldr-package\"\n\n# or, equivalently\nhelp(\"midfieldr-package\")\nIf the installation is successful, the code chunk above should produce a view of the help page as shown here."
+    "text": "Install midfieldr\nmidfieldr is not yet available from CRAN. To install the development version of midfieldr from its drat repository, type in the Console:\n# type in the RStudio Console \ninstall.packages(\"midfieldr\", \n                 repos = \"https://MIDFIELDR.github.io/drat/\", \n                 type = \"source\")\n\n\n\n\n\n\nTip\n\n\n\nIf you get an error message like the one below, it means that the packages in the dependencies list have not been installed.\n\nThe remedy is to install any packages listed in the error message and then install midfieldr again.\n\n\nOnce midfieldr is successfully installed, you can confirm the installation by running the following lines to bring up the package help page in the Help window.\n# type in the RStudio Console \nlibrary(\"midfieldr\")\n? \"midfieldr-package\"\n\n# or, equivalently\nhelp(\"midfieldr-package\")\nIf the installation is successful, the code chunk above should produce a view of the help page as shown here."
   },
   {
     "objectID": "before-you-arrive.html#install-midfielddata",
@@ -95,7 +95,7 @@
     "href": "before-you-arrive.html#homework",
     "title": "Before you arrive",
     "section": "Homework",
-    "text": "Homework\nIf you are new to R (or new to the ggplot2 or data.table packages), we recommend you complete the three introductory tutorials listed below. Completing these tutorials before attending the Institute will make your time with us that much more productive.\n\nR basics\nR chart basics\nR data basics\n\nOn Tuesday, August 2—the day before the Institute—we plan to hold online office hours to answer your questions about MIDFIELD and help resolve any problems you might be having using R or midfieldr. See the Agenda for more information."
+    "text": "Homework\nIf you are new to R (or new to the ggplot2 or data.table packages), we recommend you complete the three introductory tutorials listed below. Completing these tutorials before attending the Institute will make your time with us that much more productive.\n\nR basics\nR chart basics\nR data basics\n\nOn Tuesday, August 2—the day before the Institute—we plan to hold online office hours to answer your questions about MIDFIELD and help resolve any problems you might be having using R or midfieldr.\nSee the Agenda for more information."
   },
   {
     "objectID": "chart-basics.html",
@@ -256,7 +256,7 @@
     "href": "introduction.html",
     "title": "Introduction",
     "section": "",
-    "text": "The Multiple-Institution Database for Investigating Longitudinal Development (MIDFIELD) is a partnership of higher education institutions with engineering programs. Begun in 2004 as an extension of the SUCCEED Longitudinal Database, MIDFIELD contains Student Unit Record (SUR) data for all undergraduate, degree-seeking students at the partner institutions.\nAs of June 1, 2022, MIDFIELD contains SUR data for 1.7 M undergraduates at 19 US institutions."
+    "text": "The Multiple-Institution Database for Investigating Longitudinal Development (MIDFIELD) is a partnership of higher education institutions with engineering programs. Begun in 2004 as an extension of the SUCCEED Longitudinal Database, MIDFIELD contains Student Unit Record (SUR) data for all undergraduate, degree-seeking students at the partner institutions.\nAs of June 1, 2022, MIDFIELD contains SUR data for 1.7 M undergraduates at 21 US institutions."
   },
   {
     "objectID": "introduction.html#about-midfield",

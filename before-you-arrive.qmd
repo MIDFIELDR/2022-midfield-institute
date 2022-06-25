@@ -199,7 +199,18 @@ install.packages("midfieldr",
                  type = "source")
 ```
 
-You can confirm a successful installation by running the following lines to bring up the package help page in the Help window. 
+
+
+:::{.callout-tip appearance="default"}
+
+If you get an error message like the one below, it means that the packages in the dependencies list have not been installed. 
+
+![](figures/error.png)
+
+The remedy is to install any packages listed in the error message and then install midfieldr again. 
+:::
+
+Once midfieldr is successfully installed, you can confirm the installation by running the following lines to bring up the package help page in the Help window. 
 
 ``` r
 # type in the RStudio Console 
@@ -267,4 +278,6 @@ If you are new to R (or new to the ggplot2 or data.table packages), we recommend
 - [R chart basics](chart-basics.html)
 - [R data basics](data-basics.html)
 
-On Tuesday, August 2---the day before the Institute---we plan to hold online office hours to answer your questions about MIDFIELD and help resolve any problems you might be having using R or midfieldr. See the [Agenda](agenda.html) for more information. 
+On Tuesday, August 2---the day before the Institute---we plan to hold online office hours to answer your questions about MIDFIELD and help resolve any problems you might be having using R or midfieldr. 
+
+See the [Agenda](agenda.html) for more information. 
