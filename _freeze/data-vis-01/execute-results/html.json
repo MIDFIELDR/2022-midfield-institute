@@ -1,0 +1,14 @@
+{
+  "hash": "72e7c66ed56d8086ab7dd7457c51b69a",
+  "result": {
+    "markdown": "---\ntitle: \"Limitatiuons of common graphs\"\n---\n\n\n\n\n## Let's try this \n\n\n- [slides](slides/slides-day1-01.html) used during the workshop. \n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

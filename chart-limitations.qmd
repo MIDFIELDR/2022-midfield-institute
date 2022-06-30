@@ -1,0 +1,25 @@
+---
+title: "Visualization 1"
+subtitle: "Limitations of common charts"
+---
+
+We demonstrate the perceptual limitations of common graph types and suggest more effective alternatives. 
+
+![](figures/stacked-bar-preview.png){width=70%}
+
+
+Our goals in visual rhetoric are  
+  
+- Improving **perception** of stories in the data
+- Facilitating quantitative **reasoning** about the data
+- Enhancing our **credibility** with the audience
+
+**Materials**
+
+- [worksheets] (in progress)  I suggest you have a printed copy of these worksheets to write in during the workshop. We have a number of think-write-share activities that for many people work best in writing. 
+
+
+- [slides](https://graphdr.github.io/workshop-data-stories/slides/graph-limitations.html#1) used during the workshop. 
+
+
+

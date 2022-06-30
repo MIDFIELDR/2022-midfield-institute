@@ -168,6 +168,20 @@
     "text": "Scatterplot with mean line\nLet’s finish with a plot that you might include in a publication\n\nggplot(data = cw, mapping = aes(x = Time, y = weight, group = Diet, color = Diet)) +\n  facet_wrap(vars(Diet)) +\n  stat_summary(fun.y = \"mean\", geom = \"line\", colour= \"black\") +\n  geom_jitter() +\n  theme(legend.position = \"none\") +\n  ggtitle(\"Chick weight by diet and elapsed time\") +\n  xlab(\"Time (days)\") +\n  ylab(\"Weight (grams)\")\n\n\n\n\nNote that I printed the line layer first then printed the points over them to let the data be prominent.\n\nYour turnAnswer\n\n\n\nRead the help page for the facet_wrap() function\nSee if you can edit the code slightly to make the facets print out row-wise, as in 1 row and 4 columns of charts.\n\nWhat visual advantages does this arrangement provide?\nWhat visual disadvantages?"
   },
   {
+    "objectID": "chart-limitations.html",
+    "href": "chart-limitations.html",
+    "title": "Visualization 1",
+    "section": "",
+    "text": "Our goals in visual rhetoric are\n\nImproving perception of stories in the data\nFacilitating quantitative reasoning about the data\nEnhancing our credibility with the audience\n\nMaterials\n\n[worksheets] (in progress) I suggest you have a printed copy of these worksheets to write in during the workshop. We have a number of think-write-share activities that for many people work best in writing.\nslides used during the workshop."
+  },
+  {
+    "objectID": "chart-repertoire.html",
+    "href": "chart-repertoire.html",
+    "title": "Visualization 2",
+    "section": "",
+    "text": "The session should encourage you to:\n\nUnderstand the structure of your data\nUnderstand the type of question the data can answer\nExplore different graph types suited to the data and the question\nKeep reading and learning—an unfamiliar design may be just what you need\n\nMaterials\n\n[worksheets] (in progress) I suggest you have a printed copy of these worksheets to write in during the workshop. We have a number of think-write-share activities that for many people work best in writing.\n[slides] (in progress) used in the workshop."
+  },
+  {
     "objectID": "data-basics.html",
     "href": "data-basics.html",
     "title": "R data basics",
