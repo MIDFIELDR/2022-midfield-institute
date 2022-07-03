@@ -77,7 +77,11 @@ Complete the guided practice "Data" tutorial.
 
 2:30--3:30
 
-: *Data visualization.* Limitations of common graph types.
+: *Data visualization session 1* 
+
+- [Creating more effective charts](effective-charts.html)
+
+- [Download PDF](https://github.com/graphdr/workshop-data-stories/blob/main/slides/effective-charts-handout.pdf) worksheets for think-write-share activities. Hardcopy seems to work best for many people.  
 
 3:30--5:00 
 
@@ -102,7 +106,11 @@ Complete the guided practice "Data" tutorial.
 
 1:00--2:00 Eastern Time
 
-: *Data visualization.* Expanding your graphical repertoire. 
+: *Data visualization session 2*
+
+- [Expanding your repertoire of charts](chart-repertoire.html)
+
+- [Download PDF] (in progress) worksheets for think-write-share activities. Hardcopy seems to work best for many people. 
 
 2:00--3:30 
 

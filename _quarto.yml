@@ -37,7 +37,7 @@ website:
       - text: "R data basics"
         file: data-basics.qmd
       - text: "Visualization 1"
-        file: chart-limitations.qmd
+        file: effective-charts.qmd
       - text: "Visualization 2"
         file: chart-repertoire.qmd
       - text: "License"

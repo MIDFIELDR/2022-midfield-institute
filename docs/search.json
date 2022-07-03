@@ -18,14 +18,14 @@
     "href": "agenda.html#thursday-august-4",
     "title": "Agenda",
     "section": "Thursday, August 4",
-    "text": "Thursday, August 4\nJoin the online meeting\n\n1:00–1:30 Eastern Time\n\nMetaphors and metrics. Pipelines, pathways, and ecosystems.\n\n1:30–2:30\n\nGuided practice. Continue the case study.\n\n\n\nCase study: Results\n\n\n2:30–3:30\n\nData visualization. Limitations of common graph types.\n\n3:30–5:00\n\nSelecting a research question. Define a problem in the data that interests you with our assistance, form small groups. Report out your research questions and discussion.\n\n\nHomework\n\nComplete the guided practice “Results” tutorial.\nRefine your plan for working on your research question."
+    "text": "Thursday, August 4\nJoin the online meeting\n\n1:00–1:30 Eastern Time\n\nMetaphors and metrics. Pipelines, pathways, and ecosystems.\n\n1:30–2:30\n\nGuided practice. Continue the case study.\n\n\n\nCase study: Results\n\n\n2:30–3:30\n\nData visualization session 1\n\n\n\nCreating more effective charts\nDownload PDF worksheets for think-write-share activities. Hardcopy seems to work best for many people.\n\n\n3:30–5:00\n\nSelecting a research question. Define a problem in the data that interests you with our assistance, form small groups. Report out your research questions and discussion.\n\n\nHomework\n\nComplete the guided practice “Results” tutorial.\nRefine your plan for working on your research question."
   },
   {
     "objectID": "agenda.html#friday-august-5",
     "href": "agenda.html#friday-august-5",
     "title": "Agenda",
     "section": "Friday, August 5",
-    "text": "Friday, August 5\nJoin the online meeting\n\n1:00–2:00 Eastern Time\n\nData visualization. Expanding your graphical repertoire.\n\n2:00–3:30\n\nWork on your research question. Consulting us your progress, discussion\n\n3:30–4:30\n\nProgress report shared with the group.\n\n4:40–4:45\n\nWrap up."
+    "text": "Friday, August 5\nJoin the online meeting\n\n1:00–2:00 Eastern Time\n\nData visualization session 2\n\n\n\nExpanding your repertoire of charts\n[Download PDF] (in progress) worksheets for think-write-share activities. Hardcopy seems to work best for many people.\n\n\n2:00–3:30\n\nWork on your research question. Consulting us your progress, discussion\n\n3:30–4:30\n\nProgress report shared with the group.\n\n4:40–4:45\n\nWrap up."
   },
   {
     "objectID": "before-you-arrive.html",
@@ -95,7 +95,7 @@
     "href": "before-you-arrive.html#homework",
     "title": "Before you arrive",
     "section": "Homework",
-    "text": "Homework\nIf you are new to R (or new to the ggplot2 or data.table packages), we recommend you complete the three introductory tutorials listed below. Completing these tutorials before attending the Institute will make your time with us that much more productive.\n\nR basics\nR chart basics\nR data basics\n\nOn Tuesday, August 2—the day before the Institute—we plan to hold online office hours to answer your questions about MIDFIELD and help resolve any problems you might be having using R or midfieldr.\nSee the Agenda for more information."
+    "text": "Homework\nIf you are new to R (or new to the ggplot2 or data.table packages), we recommend you complete the three introductory tutorials listed below. Completing these tutorials before attending the Institute will make your time with us that much more productive.\n\nR basics\nR chart basics\nR data basics\n\nOn Tuesday, August 2—the day before the Institute—we plan to hold online office hours to answer your questions about MIDFIELD and help resolve any problems you might be having using R or midfieldr.\nSee the Agenda for more information, including links for downloading handouts to be used in some of the sessions."
   },
   {
     "objectID": "chart-basics.html",
@@ -168,18 +168,11 @@
     "text": "Scatterplot with mean line\nLet’s finish with a plot that you might include in a publication\n\nggplot(data = cw, mapping = aes(x = Time, y = weight, group = Diet, color = Diet)) +\n  facet_wrap(vars(Diet)) +\n  stat_summary(fun.y = \"mean\", geom = \"line\", colour= \"black\") +\n  geom_jitter() +\n  theme(legend.position = \"none\") +\n  ggtitle(\"Chick weight by diet and elapsed time\") +\n  xlab(\"Time (days)\") +\n  ylab(\"Weight (grams)\")\n\n\n\n\nNote that I printed the line layer first then printed the points over them to let the data be prominent.\n\nYour turnAnswer\n\n\n\nRead the help page for the facet_wrap() function\nSee if you can edit the code slightly to make the facets print out row-wise, as in 1 row and 4 columns of charts.\n\nWhat visual advantages does this arrangement provide?\nWhat visual disadvantages?"
   },
   {
-    "objectID": "chart-limitations.html",
-    "href": "chart-limitations.html",
-    "title": "Visualization 1",
-    "section": "",
-    "text": "Our goals in visual rhetoric are\n\nImproving perception of stories in the data\nFacilitating quantitative reasoning about the data\nEnhancing our credibility with the audience\n\nMaterials\n\n[worksheets] (in progress) I suggest you have a printed copy of these worksheets to write in during the workshop. We have a number of think-write-share activities that for many people work best in writing.\nslides used during the workshop."
-  },
-  {
     "objectID": "chart-repertoire.html",
     "href": "chart-repertoire.html",
     "title": "Visualization 2",
     "section": "",
-    "text": "The session should encourage you to:\n\nUnderstand the structure of your data\nUnderstand the type of question the data can answer\nExplore different graph types suited to the data and the question\nKeep reading and learning—an unfamiliar design may be just what you need\n\nMaterials\n\n[worksheets] (in progress) I suggest you have a printed copy of these worksheets to write in during the workshop. We have a number of think-write-share activities that for many people work best in writing.\n[slides] (in progress) used in the workshop."
+    "text": "The session should encourage you to:\n\nUnderstand the structure of your data\nUnderstand the type of question the data can answer\nExplore different graph types suited to the data and the question\nKeep reading and learning—an unfamiliar design may be just what you need\n\nMaterials\n\n[Download PDF] (in progress) worksheets for think-write-share activities. Hardcopy seems to work best for many people.\n[slides] to be posted after the workshop."
   },
   {
     "objectID": "data-basics.html",
@@ -257,6 +250,13 @@
     "title": "R data basics",
     "section": "Conclusion",
     "text": "Conclusion\nThe R basics, R chart basics, and R data basics guides introduced you to some of the basic concepts for using R and the data.table and ggplot2 packages to manipulate data and create charts. It is only an introduction to what R can do but hopefully you have seen some of the potential of using R for data science.\nNext steps. There are plenty of R courses, books, and online resources that you can learn from. Find things that work for you and don’t be afraid to make mistakes or ask questions.\nDuring the MIDFIELD workshops, you will build on what you’ve learned here, and use the midfieldr package to study student unit records. You can preview that material on the midfieldr website."
+  },
+  {
+    "objectID": "effective-charts.html",
+    "href": "effective-charts.html",
+    "title": "Visualization 1",
+    "section": "",
+    "text": "Our goals in visual rhetoric are\n\nImproving perception of stories in the data\nFacilitating quantitative reasoning about the data\nEnhancing credibility of evidence supporting an argument\n\nMaterials\n\nDownload PDF worksheets for think-write-share activities. Hardcopy seems to work best for many people.\n\n\n\n[slides] to be posted after the workshop."
   },
   {
     "objectID": "index.html",
