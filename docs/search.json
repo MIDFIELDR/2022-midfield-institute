@@ -4,28 +4,28 @@
     "href": "agenda.html",
     "title": "Agenda",
     "section": "",
-    "text": "Join the online office hours\n\n1:00–5:00 pm Eastern Time\n\nOffice hours. We are available for answering questions about MIDFIELD and resolving any problems you might be having using R or midfieldr.\n\n\nIf you haven’t worked through the three R basics tutorials, please consider using this time on Tuesday to work on them while we are available to answer questions in real-time.\nPre-workshop tutorials. Completing these tutorials before attending the Institute will make your time with us that much more productive.\n\nR basics\n\nR chart basics\nR data basics"
+    "text": "Join the online office hours\n\nPre-workshop tutorials. Completing the following tutorials before Wednesday will make your time with us that much more productive.\n\nR basics\n\nR chart basics\nR data basics\n\n\n1:00–5:00 pm Eastern Time\n\nOffice hours. We are available for answering questions about MIDFIELD and resolving problems you encounter installing R or working with R in the three tutorials listed above.\n\n\nIf you haven’t completed the tutorials, please consider using this time on Tuesday to work on them while we are available to answer questions in real-time."
   },
   {
     "objectID": "agenda.html#wednesday-august-3",
     "href": "agenda.html#wednesday-august-3",
     "title": "Agenda",
     "section": "Wednesday, August 3",
-    "text": "Wednesday, August 3\nJoin the online meeting\n\n1:00–2:00 Eastern Time\n\nIntroductions. Introduce facilitators and participants, objectives, and MIDFIELD.\n\n2:00–3:00\n\nExploring data structure. Exploring data excerpts manually.\n\n3:00–5:00\n\nGuided practice. Self-paced case study using midfieldr and midfielddata. Real-time help.\n\n\n\nCase study: Goals\nCase study: Data\n\nHomework\nComplete the guided practice “Data” tutorial."
+    "text": "Wednesday, August 3\n\nJoin the online meeting\n\n\n1:00–2:00 Eastern Time\n\nIntroductions. Introduce facilitators and participants, objectives, and MIDFIELD.\n\n2:00–3:00\n\nExploring data structure. Exploring data excerpts manually.\n\n3:00–5:00\n\nGuided practice. Self-paced case study using midfieldr and midfielddata. Real-time help.\n\n\n\nCase study: Goals A short reading.\n\nCase study: Data A midfieldr tutorial.\n\nHomework\nComplete the guided practice “Data” tutorial."
   },
   {
     "objectID": "agenda.html#thursday-august-4",
     "href": "agenda.html#thursday-august-4",
     "title": "Agenda",
     "section": "Thursday, August 4",
-    "text": "Thursday, August 4\nJoin the online meeting\n\n1:00–1:30 Eastern Time\n\nMetaphors and metrics. Pipelines, pathways, and ecosystems.\n\n1:30–2:30\n\nGuided practice. Continue the case study.\n\n\n\nCase study: Results\n\n\n2:30–3:30\n\nData visualization session 1\n\n\n\nCreating more effective charts\nDownload PDF worksheets for think-write-share activities. Hardcopy seems to work best for many people.\n\n\n3:30–5:00\n\nSelecting a research question. Define a problem in the data that interests you with our assistance, form small groups. Report out your research questions and discussion.\n\n\nHomework\n\nComplete the guided practice “Results” tutorial.\nRefine your plan for working on your research question."
+    "text": "Thursday, August 4\n\nJoin the online meeting\n\n\n1:00–1:30 Eastern Time\n\nMetaphors and metrics. Pipelines, pathways, and ecosystems.\n\n1:30–2:30\n\nGuided practice. Continue the case study.\n\n\n\nCase study: Results A midfieldr tutorial.\n\n\n2:30–3:30\n\nData visualization session 1\n\n\n\nCreating more effective charts Introduction.\nDownload PDF worksheets for think-write-share activities. Hard copy seems to work best for many people.\n\n\n3:30–5:00\n\nSelecting a research question. Define a problem in the data that interests you with our assistance, form small groups. Report out your research questions and discussion.\n\n\nHomework\n\nComplete the guided practice “Results” tutorial.\nRefine your plan for working on your research question."
   },
   {
     "objectID": "agenda.html#friday-august-5",
     "href": "agenda.html#friday-august-5",
     "title": "Agenda",
     "section": "Friday, August 5",
-    "text": "Friday, August 5\nJoin the online meeting\n\n1:00–2:00 Eastern Time\n\nData visualization session 2\n\n\n\nExpanding your repertoire of charts\n[Download PDF] (in progress) worksheets for think-write-share activities. Hardcopy seems to work best for many people.\n\n\n2:00–3:30\n\nWork on your research question. Consulting us your progress, discussion\n\n3:30–4:30\n\nProgress report shared with the group.\n\n4:40–4:45\n\nWrap up."
+    "text": "Friday, August 5\n\nJoin the online meeting\n\n\n1:00–2:00 Eastern Time\n\nData visualization session 2\n\n\n\nExpanding your graphical repertoire Introduction.\nDownload PDF worksheets for think-write-share activities. Hard copy seems to work best for many people.\n\n\n2:00–3:30\n\nWork on your research question. Consulting us your progress, discussion\n\n3:30–4:30\n\nProgress report shared with the group.\n\n4:40–4:45\n\nWrap up."
   },
   {
     "objectID": "before-you-arrive.html",
@@ -172,7 +172,7 @@
     "href": "chart-repertoire.html",
     "title": "Visualization 2",
     "section": "",
-    "text": "The session should encourage you to:\n\nUnderstand the structure of your data\nUnderstand the type of question the data can answer\nExplore different graph types suited to the data and the question\nKeep reading and learning—an unfamiliar design may be just what you need\n\nMaterials\n\n[Download PDF] (in progress) worksheets for think-write-share activities. Hardcopy seems to work best for many people.\n[slides] to be posted after the workshop."
+    "text": "The session should encourage you to:\n\nExplicitly define the type of variables in your data\nSuit the chart design to the variables you have\nIteratively explore the message conveyed by different designs\n\nMaterials\n\nDownload PDF worksheets for think-write-share activities. Hard copy seems to work best for many people.\n[slides] to be posted after the workshop."
   },
   {
     "objectID": "data-basics.html",
@@ -256,7 +256,7 @@
     "href": "effective-charts.html",
     "title": "Visualization 1",
     "section": "",
-    "text": "Our goals in visual rhetoric are\n\nImproving perception of stories in the data\nFacilitating quantitative reasoning about the data\nEnhancing credibility of evidence supporting an argument\n\nMaterials\n\nDownload PDF worksheets for think-write-share activities. Hardcopy seems to work best for many people.\n\n\n\n[slides] to be posted after the workshop."
+    "text": "Our goals in visual rhetoric are\n\nImproving perception of stories in the data\nFacilitating quantitative reasoning about the data\nEnhancing credibility of evidence supporting an argument\n\nMaterials\n\nDownload PDF worksheets for think-write-share activities. Hardcopy seems to work best for many people.\n[slides] to be posted after the workshop."
   },
   {
     "objectID": "index.html",

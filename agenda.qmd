@@ -4,20 +4,22 @@ title: "Agenda"
 
 ## Tuesday, August 2
 
-[Join the online office hours](https://purdue-edu.zoom.us/j/96788326845?pwd=VTNHRENkS3V2R3Z4VkJsMXU2ZlhFdz09
+- [Join the online office hours](https://purdue-edu.zoom.us/j/96788326845?pwd=VTNHRENkS3V2R3Z4VkJsMXU2ZlhFdz09
 )
 
-1:00--5:00 pm Eastern Time 
-
-: *Office hours.* We are available for answering questions about MIDFIELD and resolving any problems  you might be having using R or midfieldr. 
-
-If you haven't worked through the three R basics tutorials, please consider using this time on Tuesday to work on them while we are available to answer questions in real-time.  
-
-**Pre-workshop tutorials.** Completing these tutorials before attending the Institute will make your time with us that much more productive. 
+**Pre-workshop tutorials.** Completing the following tutorials before Wednesday will make your time with us that much more productive. 
 
 - [R basics](r-basics.html)   
 - [R chart basics](chart-basics.html)
 - [R data basics](data-basics.html)
+
+
+1:00--5:00 pm Eastern Time 
+
+: *Office hours.* We are available for answering questions about MIDFIELD and resolving problems you encounter installing R or working with R in the three tutorials listed above. 
+
+If you haven't completed the tutorials, please consider using this time on Tuesday to work on them while we are available to answer questions in real-time.  
+
 
 
 
@@ -29,7 +31,7 @@ If you haven't worked through the three R basics tutorials, please consider usin
 
 ## Wednesday, August 3
 
-[Join the online meeting](https://purdue-edu.zoom.us/j/96788326845?pwd=VTNHRENkS3V2R3Z4VkJsMXU2ZlhFdz09
+- [Join the online meeting](https://purdue-edu.zoom.us/j/96788326845?pwd=VTNHRENkS3V2R3Z4VkJsMXU2ZlhFdz09
 )
 
 1:00--2:00 Eastern Time
@@ -44,8 +46,8 @@ If you haven't worked through the three R basics tutorials, please consider usin
 
 : *Guided practice.* Self-paced case study using midfieldr and midfielddata. Real-time help. 
 
-- [Case study: Goals](https://midfieldr.github.io/midfieldr/articles/art-001-case-goals.html)
-- [Case study: Data](https://midfieldr.github.io/midfieldr/articles/art-002-case-data.html)
+- [Case study: Goals](https://midfieldr.github.io/midfieldr/articles/art-001-case-goals.html) A short reading.   
+- [Case study: Data](https://midfieldr.github.io/midfieldr/articles/art-002-case-data.html) A midfieldr tutorial. 
 
 **Homework**
 
@@ -60,7 +62,7 @@ Complete the guided practice "Data" tutorial.
 
 ## Thursday, August 4
 
-[Join the online meeting](https://purdue-edu.zoom.us/j/96788326845?pwd=VTNHRENkS3V2R3Z4VkJsMXU2ZlhFdz09
+- [Join the online meeting](https://purdue-edu.zoom.us/j/96788326845?pwd=VTNHRENkS3V2R3Z4VkJsMXU2ZlhFdz09
 )
 
 1:00--1:30 Eastern Time
@@ -72,16 +74,15 @@ Complete the guided practice "Data" tutorial.
 
 : *Guided practice.* Continue the case study.
 
-- [Case study: Results](https://midfieldr.github.io/midfieldr/articles/art-003-case-results.html)
+- [Case study: Results](https://midfieldr.github.io/midfieldr/articles/art-003-case-results.html) A midfieldr tutorial. 
 
 
 2:30--3:30
 
 : *Data visualization session 1* 
 
-- [Creating more effective charts](effective-charts.html)
-
-- [Download PDF](https://github.com/graphdr/workshop-data-stories/blob/main/slides/effective-charts-handout.pdf) worksheets for think-write-share activities. Hardcopy seems to work best for many people.  
+- [Creating more effective charts](effective-charts.html) Introduction. 
+- [Download PDF](https://github.com/graphdr/workshop-data-stories/blob/main/slides/effective-charts-handout.pdf) worksheets for think-write-share activities. Hard copy seems to work best for many people.  
 
 3:30--5:00 
 
@@ -101,16 +102,15 @@ Complete the guided practice "Data" tutorial.
 
 ## Friday, August 5
 
-[Join the online meeting](https://purdue-edu.zoom.us/j/96788326845?pwd=VTNHRENkS3V2R3Z4VkJsMXU2ZlhFdz09
+- [Join the online meeting](https://purdue-edu.zoom.us/j/96788326845?pwd=VTNHRENkS3V2R3Z4VkJsMXU2ZlhFdz09
 )
 
 1:00--2:00 Eastern Time
 
 : *Data visualization session 2*
 
-- [Expanding your repertoire of charts](chart-repertoire.html)
-
-- [Download PDF] (in progress) worksheets for think-write-share activities. Hardcopy seems to work best for many people. 
+- [Expanding your graphical repertoire](chart-repertoire.html) Introduction. 
+- [Download PDF](https://github.com/graphdr/workshop-data-stories/blob/main/slides/chart-repertoire-handout.pdf) worksheets for think-write-share activities. Hard copy seems to work best for many people. 
 
 2:00--3:30 
 

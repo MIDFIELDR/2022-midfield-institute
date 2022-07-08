@@ -1,26 +1,20 @@
 ---
 title: "Visualization 2"
-subtitle: "Expanding your repertoire of charts"
+subtitle: "Expanding your graphical repertoire"
 ---
 
 In the second session we illustrate a repertoire of chart types and how they are suited to specific data structures and answering specific types of questions. 
 
-
 ![](figures/evolution-preview.png)
-
 
 The session should encourage you to: 
 
-- Understand the structure of your data
-- Understand the type of question the data can answer 
-- Explore different graph types suited to the data and the question 
-- Keep reading and learning---an unfamiliar design may be just what you need
-
-
+- Explicitly define the type of **variables** in your data
+- Suit the chart **design** to the variables you have 
+- Iteratively explore the **message** conveyed by different designs
 
 **Materials**
 
-- [Download PDF] (in progress) worksheets for think-write-share activities. Hardcopy seems to work best for many people. 
-
+- [Download PDF](https://github.com/graphdr/workshop-data-stories/blob/main/slides/chart-repertoire-handout.pdf) worksheets for think-write-share activities. Hard copy seems to work best for many people. 
 - [slides] to be posted after the workshop. 
  
