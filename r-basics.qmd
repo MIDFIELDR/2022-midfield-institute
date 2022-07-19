@@ -282,7 +282,7 @@ What do the following pairs of examples do?
 1. `ceiling(18.33)` and `signif(9488, 2)`
 2. `exp(1)` and `log10(1000)`
 3. `sign(-2.9)` and `sign(32)`
-4. `abs(-27.9) and `abs(11.9)`
+4. `abs(-27.9)` and `abs(11.9)`
 
 ## Answer
 
@@ -497,9 +497,9 @@ For example, the data frame `study_grad_rate` that is bundled with midfieldr has
 
 ```{r}
 # a data frame bundled with midfieldr
-study_grad_rate
+study_results
 
-class(study_grad_rate)
+class(study_results)
 ```
 
 The `class()` function reveals that this `data.frame` object is also a `data.table` object, which is an enhanced version of R's standard data frame.
@@ -508,13 +508,13 @@ The `class()` function reveals that this `data.frame` object is also a `data.tab
 ## Your turn
 For the following midfieldr objects, determine:
 
-- the class of`add_institution`
+- the class of`add_timely_term`
 - the class of`toy_student`
 - the names of the variables in `toy_term`
 
 ## Answer
 ```r
-# class of add_institution
+# class of add_timely_term
 #> [1] "function"
 
 # class of toy_student
@@ -534,7 +534,7 @@ str(greeting)         # assigned earlier
 
 str(seq)              # R function 
 
-str(study_grad_rate)
+str(study_results)
 ```
 
 
@@ -542,13 +542,13 @@ str(study_grad_rate)
 ## Your turn
 Use `str()` to determine 
 
-1. `add_institution` arguments
+1. `add_timely_term` arguments
 2. `toy_student` dimensions
 3. `toy_term` numerical variables
 
 ## Answer
 
-1. `dframe`, `midfield_term`
+1. `dframe`, `midfield_term`, `span`, `sched_span`
 2. 100 rows x 6 columns
 3. `hours_term` 
 :::
