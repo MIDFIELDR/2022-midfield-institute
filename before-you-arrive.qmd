@@ -173,14 +173,15 @@ If successful, the package will appear in the Packages pane, e.g.,
 
 Repeat the process for the following packages: 
 
-    ggplot2
     checkmate
+    ggplot2
     wrapr
+    curl
 
 Alternatively, you can install them all at once by typing in the Console: 
 
 ``` r
-packages_we_use <- c("data.table", "ggplot2", "checkmate", "wrapr")
+packages_we_use <- c("data.table", "ggplot2", "checkmate", "wrapr", "curl")
 install.packages(packages_we_use)
 ```
 

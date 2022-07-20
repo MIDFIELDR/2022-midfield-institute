@@ -334,7 +334,7 @@ Next we plot the *mean* changes over time for each diet using the `stat_summary(
 
 ```{r}
 ggplot(data = cw, mapping = aes(x = Time, y = weight, group = Diet, color = Diet)) +
-  stat_summary(fun.y = "mean", geom = "line")
+  stat_summary(fun = "mean", geom = "line")
 ```
 
 We see that diet 3 has the highest mean weight gain by the end of the experiment but we don’t have any information about the variation (uncertainty) in the data.
@@ -353,7 +353,7 @@ We see that diet 3 has the highest mean weight gain by the end of the experiment
 #| echo: false
 
 ggplot(data = cw, mapping = aes(x = Time, y = weight, group = Diet, color = Diet)) +
-  stat_summary(fun.y = "mean", geom = "line") +
+  stat_summary(fun = "mean", geom = "line") +
   geom_point()
 ```
 
@@ -412,7 +412,7 @@ Let's finish with a plot that you might include in a publication
 ```{r}
 ggplot(data = cw, mapping = aes(x = Time, y = weight, group = Diet, color = Diet)) +
   facet_wrap(vars(Diet)) +
-  stat_summary(fun.y = "mean", geom = "line", colour= "black") +
+  stat_summary(fun = "mean", geom = "line", colour= "black") +
   geom_jitter() +
   theme(legend.position = "none") +
   ggtitle("Chick weight by diet and elapsed time") +
@@ -440,7 +440,7 @@ Note that I printed the line layer first then printed the points over them to le
 
 ggplot(data = cw, mapping = aes(x = Time, y = weight, group = Diet, color = Diet)) +
   facet_wrap(vars(Diet), ncol = 4) +
-  stat_summary(fun.y = "mean", geom = "line", colour= "black") +
+  stat_summary(fun = "mean", geom = "line", colour= "black") +
   geom_jitter() +
   theme(legend.position = "none") +
   ggtitle("Chick weight by diet and elapsed time") +
