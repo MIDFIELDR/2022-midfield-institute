@@ -24,22 +24,31 @@ website:
     contents:
       - text: "Welcome"
         file: index.qmd
+        
       - text: "Introduction"
         file: introduction.qmd
+        
       - text: "Before you arrive"
         file: before-you-arrive.qmd
+        
       - text: "Agenda"
         file: agenda.qmd
+        
       - text: "R basics"
         file: r-basics.qmd
+        
       - text: "R chart basics"
         file: chart-basics.qmd
+        
       - text: "R data basics"
         file: data-basics.qmd
+        
       - text: "Visualization 1"
         file: effective-charts.qmd
+        
       - text: "Visualization 2"
         file: chart-repertoire.qmd
+        
       - text: "License"
         file: license.qmd
         
