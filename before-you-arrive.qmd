@@ -191,7 +191,7 @@ install.packages(packages_we_use)
 
 ## Install midfieldr
 
-midfieldr is not yet available from [CRAN](https://cran.r-project.org/). To install the development version of midfieldr from its `drat` repository, type in the Console: 
+midfieldr is not yet available from [CRAN](https://cran.r-project.org/). The development version for the Institute is midfieldr 1.0.0.9025. To install from the`drat` repository, type in the Console: 
 
 ``` r
 # type in the RStudio Console 
