@@ -38,9 +38,13 @@ If you haven't completed the tutorials, please consider using this time on Tuesd
 
 : *Introductions.* Introduce facilitators and participants, objectives, and  MIDFIELD.
 
+- [Download PDF](resources/2022-day-1-01-midfield-institute-intro.pdf) slides
+
 2:00--3:00
 
 : *Exploring data structure.* Exploring data excerpts manually.
+
+- [Download PDF](resources/2022-day-1-02-exploring-data-structure.pdf) slides
 
 3:00--5:00 
 
@@ -70,6 +74,7 @@ Please check in with us before leaving the virtual meeting.
 
 : *Metaphors and metrics.* Pipelines, pathways, and ecosystems.
 
+- [Download PDF](resources/2022-day-2-01-metaphors-metrics.pdf) slides
 
 1:30--2:30
 
@@ -83,7 +88,7 @@ Please check in with us before leaving the virtual meeting.
 : *Data visualization session 1* 
 
 - [Creating more effective charts](effective-charts.html) Introduction. 
-- [Download PDF](https://github.com/graphdr/workshop-data-stories/blob/main/slides/effective-charts-handout.pdf) worksheets for think-write-share activities. Hard copy seems to work best for many people.  
+- [Download PDF](https://github.com/graphdr/workshop-data-stories/blob/main/slides/effective-charts-handout.pdf) worksheets 
 
 3:30--5:00 
 
@@ -91,6 +96,7 @@ Please check in with us before leaving the virtual meeting.
 
 - [Data dictionaries](https://midfieldr.github.io/midfielddata/reference/index.html) for the four practice data sets. 
 - [Exploring the variables](https://midfieldr.github.io/midfieldr/articles/art-000-getting-started.html) using R. The midfieldr "Getting started" page illustrates how to examine possible values for a variable.  
+- [Download PDF](resources/2022-day-2-02-operationalizing-research-question.pdf) slides
 
 
 Please check in with us before leaving the virtual meeting. 
@@ -116,7 +122,7 @@ Please check in with us before leaving the virtual meeting.
 : *Data visualization session 2*
 
 - [Expanding your graphical repertoire](chart-repertoire.html) Introduction. 
-- [Download PDF](https://github.com/graphdr/workshop-data-stories/blob/main/slides/chart-repertoire-handout.pdf) worksheets for think-write-share activities. Hard copy seems to work best for many people. 
+- [Download PDF](https://github.com/graphdr/workshop-data-stories/blob/main/slides/chart-repertoire-handout.pdf) worksheets
 
 2:00--3:30 
 
@@ -130,7 +136,6 @@ Please check in with us before leaving the virtual meeting.
 
 : *Wrap up.*
 
-
-
+- [Download PDF](resources/2022-day-3-summary.pdf) slides
 
 

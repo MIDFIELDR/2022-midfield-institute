@@ -43,6 +43,9 @@ website:
       - text: "R data basics"
         file: data-basics.qmd
         
+      - text: "R resources"
+        file: r-resources.qmd
+        
       - text: "Visualization 1"
         file: effective-charts.qmd
         

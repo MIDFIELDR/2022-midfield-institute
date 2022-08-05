@@ -11,21 +11,21 @@
     "href": "agenda.html#wednesday-august-3",
     "title": "Agenda",
     "section": "Wednesday, August 3",
-    "text": "Wednesday, August 3\n\nJoin the online meeting\n\n\n1:00–2:00 Eastern Time\n\nIntroductions. Introduce facilitators and participants, objectives, and MIDFIELD.\n\n2:00–3:00\n\nExploring data structure. Exploring data excerpts manually.\n\n3:00–5:00\n\nGuided practice. Self-paced case study using midfieldr and midfielddata. Real-time help.\n\n\n\nCase study: Goals A short reading.\n\nCase study: Data A midfieldr tutorial.\n\nPlease check in with us before leaving the virtual meeting.\nHomework\n\nComplete the guided practice “Data” tutorial.\nOptional (FYI). Topics from today’s guided practice are developed in greater detail in midfieldr package vignettes [link]."
+    "text": "Wednesday, August 3\n\nJoin the online meeting\n\n\n1:00–2:00 Eastern Time\n\nIntroductions. Introduce facilitators and participants, objectives, and MIDFIELD.\n\n\n\nDownload PDF slides\n\n\n2:00–3:00\n\nExploring data structure. Exploring data excerpts manually.\n\n\n\nDownload PDF slides\n\n\n3:00–5:00\n\nGuided practice. Self-paced case study using midfieldr and midfielddata. Real-time help.\n\n\n\nCase study: Goals A short reading.\n\nCase study: Data A midfieldr tutorial.\n\nPlease check in with us before leaving the virtual meeting.\nHomework\n\nComplete the guided practice “Data” tutorial.\nOptional (FYI). Topics from today’s guided practice are developed in greater detail in midfieldr package vignettes [link]."
   },
   {
     "objectID": "agenda.html#thursday-august-4",
     "href": "agenda.html#thursday-august-4",
     "title": "Agenda",
     "section": "Thursday, August 4",
-    "text": "Thursday, August 4\n\nJoin the online meeting\n\n\n1:00–1:30 Eastern Time\n\nMetaphors and metrics. Pipelines, pathways, and ecosystems.\n\n1:30–2:30\n\nGuided practice. Continue the case study.\n\n\n\nCase study: Results A midfieldr tutorial.\n\n\n2:30–3:30\n\nData visualization session 1\n\n\n\nCreating more effective charts Introduction.\nDownload PDF worksheets for think-write-share activities. Hard copy seems to work best for many people.\n\n\n3:30–5:00\n\nOperationalizing a research question. Define a problem in the data that interests you with our assistance, form small groups. Report out your research questions and discussion.\n\n\n\nData dictionaries for the four practice data sets.\nExploring the variables using R. The midfieldr “Getting started” page illustrates how to examine possible values for a variable.\n\nPlease check in with us before leaving the virtual meeting.\nHomework\n\nComplete the guided practice “Results” tutorial.\nRefine your plan for working on your research question.\n\nOptional (FYI). Topics from today’s guided practice are developed in greater detail in midfieldr package vignettes [link]."
+    "text": "Thursday, August 4\n\nJoin the online meeting\n\n\n1:00–1:30 Eastern Time\n\nMetaphors and metrics. Pipelines, pathways, and ecosystems.\n\n\n\nDownload PDF slides\n\n\n1:30–2:30\n\nGuided practice. Continue the case study.\n\n\n\nCase study: Results A midfieldr tutorial.\n\n\n2:30–3:30\n\nData visualization session 1\n\n\n\nCreating more effective charts Introduction.\nDownload PDF worksheets\n\n\n3:30–5:00\n\nOperationalizing a research question. Define a problem in the data that interests you with our assistance, form small groups. Report out your research questions and discussion.\n\n\n\nData dictionaries for the four practice data sets.\nExploring the variables using R. The midfieldr “Getting started” page illustrates how to examine possible values for a variable.\n\nDownload PDF slides\n\nPlease check in with us before leaving the virtual meeting.\nHomework\n\nComplete the guided practice “Results” tutorial.\nRefine your plan for working on your research question.\n\nOptional (FYI). Topics from today’s guided practice are developed in greater detail in midfieldr package vignettes [link]."
   },
   {
     "objectID": "agenda.html#friday-august-5",
     "href": "agenda.html#friday-august-5",
     "title": "Agenda",
     "section": "Friday, August 5",
-    "text": "Friday, August 5\n\nJoin the online meeting\n\n\n1:00–2:00 Eastern Time\n\nData visualization session 2\n\n\n\nExpanding your graphical repertoire Introduction.\nDownload PDF worksheets for think-write-share activities. Hard copy seems to work best for many people.\n\n\n2:00–3:30\n\nWork on your research question. Consult with us on your progress, discussion\n\n3:30–4:30\n\nProgress report shared with the group.\n\n4:40–4:45\n\nWrap up."
+    "text": "Friday, August 5\n\nJoin the online meeting\n\n\n1:00–2:00 Eastern Time\n\nData visualization session 2\n\n\n\nExpanding your graphical repertoire Introduction.\nDownload PDF worksheets\n\n\n2:00–3:30\n\nWork on your research question. Consult with us on your progress, discussion\n\n3:30–4:30\n\nProgress report shared with the group.\n\n4:40–4:45\n\nWrap up.\n\n\n\nDownload PDF slides"
   },
   {
     "objectID": "before-you-arrive.html",
@@ -383,5 +383,26 @@
     "title": "R basics",
     "section": "Keyboard shortcuts",
     "text": "Keyboard shortcuts\n\nIf you are working in RStudio, you can see the menu of keyboard shortcuts using the menu Tools > Keyboard Shortcuts Help.\nThe shortcuts we use regularly include\n\n\n\n\n\nWindows / Linux\nAction\nMac OS\n\n\n\n\nctrl shift K\nCompile R Markdown document\ncmd shift K\n\n\nctrl L\nClear the RStudio Console\nctrl L\n\n\nctrl shift C\nComment/uncomment line(s)\ncmd shift C\n\n\nctrl X, C, V\nCut, copy, paste\ncmd X, C, V\n\n\nctrl F\nFind in text\ncmd F\n\n\nctrl I\nIndent or re-indent lines od code\ncmd I\n\n\nalt –\nInsert the assignment operator <-\noption –\n\n\nctrl alt B\nRun from begining to line\ncmd option B\n\n\nctrl alt E\nRun from line to end\ncmd option E\n\n\nctrl Enter\nRun selected line(s)\ncmd Return\n\n\nctrl S\nSave\ncmd S\n\n\nctrl A\nSelect all text\ncmd A\n\n\nctrl Z\nUndo\ncmd Z"
+  },
+  {
+    "objectID": "r-resources.html",
+    "href": "r-resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "If you happen to come across other resources that you find useful, please let us know and we’ll add them to the list."
+  },
+  {
+    "objectID": "r-resources.html#using-r",
+    "href": "r-resources.html#using-r",
+    "title": "Resources",
+    "section": "Using R",
+    "text": "Using R\n\nAtrebas (2019) for doing identical tasks in the data.table and dplyr environments. Very useful if you are familiar with dplyr syntax and want to translate that familiar functionality to data.table syntax.\nDowle & Srinivasan (2022) for the data.table website with vignettes by the package authors\nHoltz (2018) for a gallery of chart designs possible with ggplot2.\nLayton (2022) for Richard’s blog in which several articles illustrate redesigning a published chart in an engineering education article to better align the logic of a display with the logic of the argument.\nR-bloggers, a searchable aggregator of R bloggers.\nStackoverflow Searchable, public platform for coding questions and answers. For R-specific Q&A, add [r] as a search tag. Additional search tags such as [ggplot2] or [data.table] will help narrow your searches involving these packages.\nRStudio (2022) Links to downloadable help summaries (cheat sheets) for ggplot2 and many other packages. For data.table scroll down to the “Contributed cheatsheets” section.\nZumel & Mount (2020) for data science work with a very good chapter on data manipulation that performs every step three ways: a base R solution, a data.table solution, and a dplyr solution."
+  },
+  {
+    "objectID": "r-resources.html#non-r-no-code",
+    "href": "r-resources.html#non-r-no-code",
+    "title": "Resources",
+    "section": "Non-R (no code)",
+    "text": "Non-R (no code)\n\nMount & Zumel (2019) for a theory of coordinatized data, that is, converting to and from row-oriented and column-oriented data structures (commonly called pivoting and unpivoting).\nRobbins (2013) for a detailed development of principles and practices for creating effective charts."
   }
 ]
