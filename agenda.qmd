@@ -14,6 +14,7 @@ title: "Agenda"
 - [R data basics](data-basics.html)
 
 
+
 1:00--5:00 pm Eastern Time 
 
 : *Office hours.* We are available for answering questions about MIDFIELD and resolving problems you encounter installing R or working with R in the three tutorials listed above. 
@@ -139,3 +140,9 @@ Please check in with us before leaving the virtual meeting.
 - [Download PDF](resources/2022-day-3-summary.pdf) slides
 
 
+
+
+## After the workshop
+
+- [R resources](r-resources.html) Additional links and books you might find useful
+- Links to slides are listed above under the relevant session
